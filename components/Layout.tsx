@@ -1,10 +1,10 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, SVGProps } from "react";
 
 import NextLink from "next/link";
 import Head from "next/head";
 import { Flex, Spacer, Box, useColorMode, IconButton } from "@chakra-ui/react";
 
-export function FaSolidMoon(props: any) {
+function FaSolidMoon(props: SVGProps<SVGSVGElement>) {
   // 月
   return (
     <svg
@@ -22,7 +22,7 @@ export function FaSolidMoon(props: any) {
   );
 }
 
-export function IcRoundWbSunny(props: any) {
+function IcRoundWbSunny(props: SVGProps<SVGSVGElement>) {
   // 太陽
   return (
     <svg
