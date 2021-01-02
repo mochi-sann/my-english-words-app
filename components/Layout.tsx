@@ -149,23 +149,37 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
       <HeadsDeta title={title}>
         {/* <link rel="shortcut icon" href="open-book.png" type="image/x-icon" /> */}
       </HeadsDeta>
-      <Flex bg={headerBg} position="sticky" w="100vw" top="0" left="0">
-        <Box p="2">
-          <NextLink href="/">
-            <Link href="/">
-              <Heading color={HeaderTextColor} as="h1" size="md">
-                Chakra App
-              </Heading>
-            </Link>
-          </NextLink>
-        </Box>
-        <Spacer />
-        <Box p="2">
-          <ChangeDarkModeAndLightMode />
-        </Box>
+      <Flex
+        bg={headerBg}
+        position="sticky"
+        w="100vw"
+        top="0"
+        left="0"
+        boxShadow="md"
+        p="2"
+      >
+        <Container maxWidth="800px" p="0">
+          <Flex>
+            <Box>
+              <NextLink href="/">
+                <Link href="/">
+                  <Heading color={HeaderTextColor} as="h1" size="lg">
+                    Chakra App
+                  </Heading>
+                </Link>
+              </NextLink>
+            </Box>
+
+            <Spacer />
+
+            <Box>
+              <ChangeDarkModeAndLightMode />
+            </Box>
+          </Flex>
+        </Container>
       </Flex>
 
-      <Container maxWidth="700px">{children}</Container>
+      <Container maxWidth="800px">{children}</Container>
 
       <footer>
         <hr />
