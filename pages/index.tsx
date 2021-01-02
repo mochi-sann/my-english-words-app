@@ -10,6 +10,98 @@ const IndexPage = () => (
       Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
       chakra-ui Example 👋
     </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
+    <Text className="text-red-500 text-6xl font-semibold">
+      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
+      chakra-ui Example 👋
+    </Text>
     {/* <h2>こんにちは</h2> */}
     <a href="https://nextjs.org">Next.js!</a>
     <p>
