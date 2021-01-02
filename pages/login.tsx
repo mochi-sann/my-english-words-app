@@ -2,6 +2,7 @@
 import Layout from "~/components/Layout";
 import { Text, Button } from "@chakra-ui/react";
 import { SVGProps } from "react";
+
 export function LogosGoogleIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg
@@ -31,14 +32,22 @@ export function LogosGoogleIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+const LoginPage = () => {
+  console.log("Googleでログインボタンを押した");
+  console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
+};
+
 const AboutPage = () => {
   return (
     <Layout title="About | Next.js + TypeScript Example">
       <Text>loginページ</Text>
       <Button>
-        <LogosGoogleIcon />
-        <Text ml="3">Sign in with Google</Text>
+        <LogosGoogleIcon className="w-5 h-5" />
+        <Text ml="3" onClick={LoginPage}>
+          Sign in with Google
+        </Text>
       </Button>
+      {process.env.FIREBASE_CLIENT_EMAIL}
     </Layout>
   );
 };
