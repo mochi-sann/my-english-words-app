@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  next:
+    build: .
+    ports:
+      - 8000:8000
+    volumes:
+      - .:/root/app/
+      - /root/app/node_modules
+    command: sh -c "yarn && yarn dev"
