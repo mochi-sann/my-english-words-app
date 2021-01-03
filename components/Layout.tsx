@@ -1,6 +1,7 @@
 import React, { ReactNode, SVGProps } from "react";
 
 import NextLink from "next/link";
+import Image from "next/image";
 import Head from "next/head";
 import {
   Flex,
@@ -14,6 +15,8 @@ import {
   Container,
   Text,
 } from "@chakra-ui/react";
+
+import LoginWithGoogle from "~/components/LoginWithGoogle";
 
 function FaSolidMoon(props: SVGProps<SVGSVGElement>) {
   // 月
@@ -145,7 +148,7 @@ type Props = {
 const Layout = ({ children, title = "This is the default title" }: Props) => {
   const headerBg = useColorModeValue("#fff", "gray.900");
 
-  const HeaderTextColor = useColorModeValue("#000", "#fff");
+  // const HeaderTextColor = useColorModeValue("#000", "#fff");
   return (
     <>
       <HeadsDeta title={title}>
@@ -160,20 +163,30 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
         boxShadow="md"
         p="2"
       >
-        <Container maxWidth="800px" p="0">
+        <Container maxWidth="900px" px="2">
           <Flex>
-            <Box>
+            <Box h="40px">
               <NextLink href="/">
-                <Link href="/">
-                  <Heading color={HeaderTextColor} as="h1" size="lg">
-                    Chakra App
-                  </Heading>
+                <Link href="/" h="40px">
+                  <Flex>
+                    <Image
+                      src="/icons/icon_512x512@2x.png"
+                      width="40"
+                      height="40"
+                    />
+                    <Heading ml="2" color={useColorModeValue("#000", "#fff")}>
+                      名無し
+                    </Heading>
+                  </Flex>
                 </Link>
               </NextLink>
             </Box>
 
             <Spacer />
 
+            <Box className="pr-2">
+              <LoginWithGoogle />
+            </Box>
             <Box>
               <ChangeDarkModeAndLightMode />
             </Box>

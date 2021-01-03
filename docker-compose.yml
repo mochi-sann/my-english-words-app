@@ -7,4 +7,5 @@ services:
     volumes:
       - .:/root/app/
       - /root/app/node_modules
+      - /root/app/.next
     command: sh -c "yarn && yarn dev -p 8000"

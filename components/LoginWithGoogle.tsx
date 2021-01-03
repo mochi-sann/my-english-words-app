@@ -1,5 +1,5 @@
 // import Link from "next/link";
-import Layout from "~/components/Layout";
+// import Layout from "~/components/Layout";
 import { Text, Button } from "@chakra-ui/react";
 import { SVGProps } from "react";
 import { login } from "~/lib/firebase";
@@ -11,13 +11,10 @@ import { login } from "~/lib/firebase";
 
 const LoginPage = () => {
   return (
-    <Layout title="About | Next.js + TypeScript Example">
-      <Text>loginページ</Text>
-      <Button onClick={login}>
-        <LogosGoogleIcon className="w-5 h-5" />
-        <Text ml="3">Sign in with Google</Text>
-      </Button>
-    </Layout>
+    <Button onClick={login}>
+      <LogosGoogleIcon className="w-5 h-5" />
+      <Text ml="3">Sign in with Google</Text>
+    </Button>
   );
 };
 
