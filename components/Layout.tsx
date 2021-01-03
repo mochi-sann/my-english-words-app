@@ -12,6 +12,7 @@ import {
   Heading,
   useColorModeValue,
   Container,
+  Text,
 } from "@chakra-ui/react";
 
 function FaSolidMoon(props: SVGProps<SVGSVGElement>) {
@@ -143,6 +144,7 @@ type Props = {
 
 const Layout = ({ children, title = "This is the default title" }: Props) => {
   const headerBg = useColorModeValue("#fff", "gray.900");
+
   const HeaderTextColor = useColorModeValue("#000", "#fff");
   return (
     <>
@@ -181,10 +183,16 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
 
       <Container maxWidth="800px">{children}</Container>
 
-      <footer>
-        <hr />
-        <span>I&apos;m here to stay (Footer)</span>
-      </footer>
+      <Box bg={useColorModeValue("gray.200", "gray.700")}>
+        <hr className="mt-4" />
+
+        <Container maxWidth="800px" className="py-8">
+          <Text className="text-center ">
+            <Link href="https://github.com/Mochichi2003">Mochi</Link>
+            が作りました
+          </Text>
+        </Container>
+      </Box>
     </>
   );
 };
