@@ -47,7 +47,6 @@ const AboutPage = () => {
           Sign in with Google
         </Text>
       </Button>
-      {process.env.FIREBASE_CLIENT_EMAIL}
     </Layout>
   );
 };

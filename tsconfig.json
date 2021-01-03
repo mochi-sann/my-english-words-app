@@ -26,5 +26,11 @@
     "target": "esnext"
   },
   "exclude": ["node_modules"],
-  "include": ["**/*.ts", "**/*.tsx", "pages/test/index.test.ts"]
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "pages/test/index.test.ts",
+    "utils/firebase/nodeApp.js",
+    "utils/firebase/clientApp.js"
+  ]
 }

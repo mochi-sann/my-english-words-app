@@ -79,5 +79,8 @@
     "ts-jest": "^26.4.4",
     "typescript": "^4.1.2"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "browser": {
+    "fs": true
+  }
 }
