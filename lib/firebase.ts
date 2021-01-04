@@ -51,6 +51,26 @@ export const login = () => {
       // ...
     });
 };
+// Login状態の検知
+export const listenAuthState = (dispatch: any) => {
+  return firebase.auth().onAuthStateChanged(function (user) {
+    if (user) {
+      // User is signed in.
+      dispatch({
+        type: "login",
+        payload: {
+          user,
+        },
+      });
+    } else {
+      // User is signed out.
+      // ...
+      dispatch({
+        type: "logout",
+      });
+    }
+  });
+};
 
 export const logout = () => {
   auth.signOut().then(() => {

@@ -2,6 +2,10 @@ import "../styles/global.css";
 import type { AppProps /*, AppContext */ } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
+import AuthContext from "~/lib/AuthContext";
+import authReducer from "~/lib/authReducer.ts";
+import React, { useReducer, useEffect } from "react";
+import { listenAuthState } from "~/lib/firebase";
 
 const styles = {
   global: (props: AppProps) => ({
@@ -46,9 +50,18 @@ const colors = {
 const theme = extendTheme({ colors, components, styles });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const [state, dispatch] = useReducer(
+    authReducer.reducer,
+    authReducer.initialState
+  );
+  useEffect(() => {
+    return listenAuthState(dispatch);
+  }, []);
   return (
     <ChakraProvider theme={theme}>
-      <Component {...pageProps} />
+      <AuthContext.Provider value={state}>
+        <Component {...pageProps} />
+      </AuthContext.Provider>
     </ChakraProvider>
   );
 }
