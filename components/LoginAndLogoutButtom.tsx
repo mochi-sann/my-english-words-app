@@ -41,7 +41,7 @@ export const LoginDrawer = ({ isOpen, onClose, finalFocusRef }: any) => {
         <DrawerOverlay>
           <DrawerContent>
             <DrawerCloseButton />
-            <DrawerHeader>login your account</DrawerHeader>
+            <DrawerHeader>Sign in your account</DrawerHeader>
 
             <DrawerBody>
               <Button
@@ -58,10 +58,22 @@ export const LoginDrawer = ({ isOpen, onClose, finalFocusRef }: any) => {
   );
 };
 
-const LoginPage = () => {
-  const Bordercolor = useColorModeValue("gray.300", "gray.500");
+export const LoginBtn = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef: any = React.useRef();
+  return (
+    <>
+      <Button ref={btnRef} colorScheme="blue" onClick={onOpen}>
+        Login
+      </Button>
+      {isOpen}
+      <LoginDrawer isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef} />
+    </>
+  );
+};
+const LoginPage = () => {
+  const Bordercolor = useColorModeValue("gray.300", "gray.500");
+
   return (
     <>
       <AuthContext.Consumer>
@@ -69,15 +81,7 @@ const LoginPage = () => {
           Object.keys(user).length === 0 ? (
             // <NextLink href="/login">
             <>
-              <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
-                Login
-              </Button>
-              {isOpen}
-              <LoginDrawer
-                isOpen={isOpen}
-                onClose={onClose}
-                finalFocusRef={btnRef}
-              />
+              <LoginBtn />
             </>
           ) : (
             // </NextLink>
@@ -93,7 +97,7 @@ const LoginPage = () => {
                   src={user.providerData[0].photoURL}
                 />
               </MenuButton>
-              <MenuList>
+              <MenuList zIndex="100">
                 <MenuItem>Download</MenuItem>
                 <MenuItem as="button" onClick={logout}>
                   Logout

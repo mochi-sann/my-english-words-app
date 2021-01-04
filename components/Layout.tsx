@@ -14,9 +14,13 @@ import {
   useColorModeValue,
   Container,
   Text,
+  Wrap,
+  WrapItem,
+  Center,
 } from "@chakra-ui/react";
+import AuthContext from "~/lib/AuthContext";
 
-import LoginWithGoogle from "@components/LoginAndLogoutButtom";
+import LoginWithGoogle, { LoginBtn } from "@components/LoginAndLogoutButtom";
 
 import { FaSolidMoon, IcRoundWbSunny } from "~/components/svgs/icon";
 
@@ -128,6 +132,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
         left="0"
         boxShadow="md"
         p="2"
+        zIndex="100"
       >
         <Container maxWidth="900px" px="2">
           <Flex>
@@ -160,9 +165,44 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
         </Container>
       </Flex>
 
-      <Container maxWidth="800px">{children}</Container>
-
-      <Box bg={useColorModeValue("gray.200", "gray.700")}>
+      <>
+        <AuthContext.Consumer>
+          {(user: any) =>
+            Object.keys(user).length === 0 ? (
+              // ログインしてないときに表示するやつ
+              // <NextLink href="/login">
+              <>
+                <Box w="100vw" py="100px" background="blue.100">
+                  <Container maxWidth="900px" px="2">
+                    <Center>
+                      <Wrap>
+                        <WrapItem>
+                          <Text fontWeight="600" fontSize="3xl">
+                            ログインしてください
+                          </Text>
+                        </WrapItem>
+                        <WrapItem pl="8">
+                          <LoginBtn />
+                        </WrapItem>
+                      </Wrap>
+                    </Center>
+                  </Container>
+                </Box>
+              </>
+            ) : (
+              // </NextLink>
+              <></>
+            )
+          }
+        </AuthContext.Consumer>
+        <Container maxWidth="800px">{children}</Container>
+      </>
+      <Box
+        bg={useColorModeValue("gray.200", "gray.700")}
+        position="sticky"
+        buttom="0"
+        zIndex="10"
+      >
         <hr className="mt-4" />
 
         <Container maxWidth="800px" className="py-8">
