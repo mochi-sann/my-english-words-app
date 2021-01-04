@@ -29,11 +29,12 @@ export const login = () => {
     .signInWithPopup(provider)
     .then(function (result: any) {
       // This gives you a Google Access Token. You can use it to access the Google API.
-      // const token = result.credential.accessToken;
+      const token = result.credential.accessToken;
       // The signed-in user info.
-      // const user = result.user;
+      const user = result.user;
 
-      console.log(`result : ${result}`);
+      console.log(`user : ${JSON.stringify(user)} \n token ${token}`);
+      console.log(result);
 
       // ...
     })
