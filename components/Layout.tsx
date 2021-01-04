@@ -16,7 +16,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import LoginWithGoogle from "~/components/LoginWithGoogle";
+import LoginWithGoogle from "@components/LoginAndLogoutButtom";
 
 import { FaSolidMoon, IcRoundWbSunny } from "~/components/svgs/icon";
 

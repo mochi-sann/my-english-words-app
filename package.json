@@ -7,13 +7,12 @@
     "start": "next start",
     "type-check": "tsc --pretty --noEmit",
     "format": "prettier --write .",
-    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "lint": "eslint . --fix --ext ts --ext tsx --ext js",
     "test": "jest"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
+      "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {

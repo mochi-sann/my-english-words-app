@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Layout from "../components/Layout";
 import React from "react";
 
@@ -12,12 +11,6 @@ const IndexPage = () => (
     </Text>
 
     {/* <h2>こんにちは</h2> */}
-    <a href="https://nextjs.org">Next.js!</a>
-    <p>
-      <Link href="/login">
-        <a>login</a>
-      </Link>
-    </p>
   </Layout>
 );
 
