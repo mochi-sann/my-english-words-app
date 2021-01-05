@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import React from "react";
-
-import { Text } from "@chakra-ui/react";
+import NextLink from "next/link";
+import { Text, Link } from "@chakra-ui/react";
 
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
@@ -9,6 +9,9 @@ const IndexPage = () => (
       Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
       chakra-ui Example 👋
     </Text>
+    <NextLink href="/make">
+      <Link href="/make">問題集を作る</Link>
+    </NextLink>
 
     {/* <h2>こんにちは</h2> */}
   </Layout>

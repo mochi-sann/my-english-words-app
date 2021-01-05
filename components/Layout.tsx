@@ -124,6 +124,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
       <HeadsDeta title={title}>
         {/* <link rel="shortcut icon" href="open-book.png" type="image/x-icon" /> */}
       </HeadsDeta>
+      {/* ヘッダー */}
       <Flex
         bg={headerBg}
         position="sticky"
@@ -145,7 +146,12 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
                       width="40"
                       height="40"
                     />
-                    <Heading ml="2" color={useColorModeValue("#000", "#fff")}>
+                    <Heading
+                      ml="2"
+                      fontSize="xl"
+                      textAlign={["center", "center"]}
+                      color={useColorModeValue("#000", "#fff")}
+                    >
                       名無し
                     </Heading>
                   </Flex>
@@ -164,8 +170,9 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
           </Flex>
         </Container>
       </Flex>
-
+      {/* ヘッダーここまで */}
       <>
+        {/* ログインしてないときはログインするように促してくるやつ */}
         <AuthContext.Consumer>
           {(user: any) =>
             Object.keys(user).length === 0 ? (
@@ -195,16 +202,18 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
             )
           }
         </AuthContext.Consumer>
+        {/* メインの記事が入るところ */}
         <Container maxWidth="800px">{children}</Container>
       </>
+      {/* Footer */}
+      <Box h="150px"></Box>
       <Box
         bg={useColorModeValue("gray.200", "gray.700")}
-        position="sticky"
-        buttom="0"
+        position="absolute"
+        w="100vw"
+        bottom="0"
         zIndex="10"
       >
-        <hr className="mt-4" />
-
         <Container maxWidth="800px" className="py-8">
           <Text className="text-center ">
             <Link href="https://github.com/Mochichi2003">Mochi</Link>

@@ -16,6 +16,7 @@ import {
   DrawerContent,
   DrawerCloseButton,
   useDisclosure,
+  MenuGroup,
 } from "@chakra-ui/react";
 
 import { login, logout } from "~/lib/firebase";
@@ -28,6 +29,7 @@ import React from "react";
 //   console.log(process.env.NEXT_PUBLIC_FIREBASE_API_KEY);
 // };
 import { LogosGoogleIcon } from "~/components/svgs/logo";
+import { MdiLogout } from "~/components/svgs/icon";
 
 export const LoginDrawer = ({ isOpen, onClose, finalFocusRef }: any) => {
   return (
@@ -98,10 +100,12 @@ const LoginPage = () => {
                 />
               </MenuButton>
               <MenuList zIndex="100">
-                <MenuItem>Download</MenuItem>
-                <MenuItem as="button" onClick={logout}>
-                  Logout
-                </MenuItem>
+                <MenuGroup title={"@" + user.providerData[0].displayName}>
+                  <MenuItem as="button" onClick={logout}>
+                    <MdiLogout className="mr-2" />
+                    Logout
+                  </MenuItem>
+                </MenuGroup>
               </MenuList>
             </Menu>
           )
