@@ -1,9 +1,12 @@
 import firebase from "firebase/app";
 import "firebase/auth"; // If you need it
-import "firebase/firestore"; // If you need it
-import "firebase/storage"; // If you need it
-import "firebase/analytics"; // If you need it
-import "firebase/performance";
+import "firebase/firestore";
+
+// import "firebase/storage"; // If you need it
+
+// import "firebase/analytics"; // If you need it
+// import "firebase/performance";
+// import admin from "firebase-admin";
 
 const config = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -17,11 +20,12 @@ const config = {
 
 !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
 
-export const db = firebase.firestore(); // If you need it
+// export const db = firebase.firestore(); // If you need it
 
 export const auth = firebase.auth();
 
 export const login = () => {
+  // googleでログイン
   const provider = new firebase.auth.GoogleAuthProvider();
   // provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
   firebase
@@ -71,9 +75,16 @@ export const listenAuthState = (dispatch: any) => {
     }
   });
 };
-
+// Logout
 export const logout = () => {
   auth.signOut().then(() => {
     window.location.reload();
   });
 };
+
+// DBを初期化
+// const admin = require('firebase-admin');
+
+// let serviceAccount = require('path/to/serviceAccountKey.json');
+
+export const db = firebase.firestore();

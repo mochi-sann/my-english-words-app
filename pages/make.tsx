@@ -3,25 +3,23 @@ import React from "react";
 
 import { useForm } from "react-hook-form";
 
-import {
-  Box,
-  Input,
-  Table,
-  Thead,
-  Tbody,
-  Tr,
-  Th,
-  Td,
-  Button,
-} from "@chakra-ui/react";
+import { Box, Table, Thead, Tbody, Tr, Th, Button } from "@chakra-ui/react";
+// import { db } from "~/lib/firebase.ts";
+
+import FromInputs from "~/components/makeForms/japaneseAndEnglish.tsx";
 
 type Inputs = {
   example: string;
   exampleRequired: string;
 };
+
 const makePage = () => {
   const { register, handleSubmit, watch, errors } = useForm<Inputs>();
-  const onSubmit = (data) => console.log(data);
+
+  const onSubmit = (data: object) => {
+    console.log(data);
+    // db.collection("words").doc().set(data);
+  };
 
   console.log(watch("example"));
   return (
@@ -31,6 +29,9 @@ const makePage = () => {
           <Table>
             <Thead>
               <Tr>
+                <Th fontSize="xl" className="text-xl" px="2px">
+                  番号
+                </Th>
                 <Th fontSize="xl" className="text-xl" px="2px">
                   日本語
                 </Th>
@@ -43,50 +44,14 @@ const makePage = () => {
               </Tr>
             </Thead>
             <Tbody>
-              <Tr>
-                <Td px="2px">
-                  <Input
-                    w="100%"
-                    h="40px"
-                    defaultValue="日本語"
-                    placeholder="日本語"
-                    ref={register}
-                  />
-                </Td>
-                <Td px="0" w="2px">
-                  :
-                </Td>
-                <Td px="2px">
-                  <Input
-                    w="100%"
-                    h="40px"
-                    placeholder="Englsh"
-                    defaultValue="Japanese"
-                    ref={register}
-                  />
-                </Td>
-              </Tr>
-              <Tr>
-                <Td px="2px">
-                  <Input
-                    w="100%"
-                    h="40px"
-                    placeholder="日本語"
-                    ref={register}
-                  />
-                </Td>
-                <Td px="0" w="2px">
-                  :
-                </Td>
-                <Td px="2px">
-                  <Input
-                    w="100%"
-                    h="40px"
-                    placeholder="Englsh"
-                    ref={register}
-                  />
-                </Td>
-              </Tr>
+              <FromInputs ref={register} number={1} />
+              <FromInputs ref={register} number={2} />
+              <FromInputs ref={register} number={3} />
+              <FromInputs ref={register} number={4} />
+              <FromInputs ref={register} number={5} />
+              <FromInputs ref={register} number={6} />
+              <FromInputs ref={register} number={7} />
+              <FromInputs ref={register} number={8} />
             </Tbody>
           </Table>
           <Button
@@ -102,7 +67,9 @@ const makePage = () => {
           </Button>
           {errors.exampleRequired && <span>This field is required</span>}
 
-          <Input type="submit" />
+          <Button w="100%" bg="red.500" type="submit">
+            送信
+          </Button>
         </form>
       </Box>
     </Layout>

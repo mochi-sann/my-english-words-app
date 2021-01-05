@@ -31,6 +31,7 @@
     "**/*.tsx",
     "pages/test/index.test.ts",
     "utils/firebase/nodeApp.js",
-    "utils/firebase/clientApp.js"
+    "utils/firebase/clientApp.js",
+    "lib/firebase/db.ts"
   ]
 }

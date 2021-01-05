@@ -185,7 +185,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
                       <Wrap>
                         <WrapItem>
                           <Text fontWeight="600" fontSize="3xl">
-                            ログインしてください
+                            ログイン
                           </Text>
                         </WrapItem>
                         <WrapItem pl="8">
