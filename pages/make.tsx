@@ -9,15 +9,16 @@ import {
   HStack,
   VStack,
   NumberInput,
-  NumberInputField,
-  NumberInputStepper,
-  NumberIncrementStepper,
-  NumberDecrementStepper,
   InputGroup,
+  IconButton,
+  useNumberInput,
+  Input,
 } from "@chakra-ui/react";
 // import { db } from "~/lib/firebase.ts";
 
 import FromInputs from "~/components/makeForms/japaneseAndEnglish.tsx";
+
+import { TopcoatPlus, TopcoatMinus } from "~/components/svgs/icon.tsx";
 
 type Inputs = {
   example: string;
@@ -44,6 +45,25 @@ const makePage = () => {
       setInputCounts(1);
     }
   });
+
+  // 行数を管理するところ
+  // https://chakra-ui.com/docs/form/number-input#create-a-mobile-spinner
+  const {
+    getInputProps,
+    getIncrementButtonProps,
+    getDecrementButtonProps,
+  } = useNumberInput({
+    step: 1,
+    defaultValue: 10,
+    min: 5,
+    max: 100,
+    precision: 0,
+  });
+
+  const inc = getIncrementButtonProps();
+  const dec = getDecrementButtonProps();
+  const input = getInputProps();
+
   return (
     <Layout title="Home | Next.js + TypeScript Example">
       <Box mt="4">
@@ -97,19 +117,19 @@ const makePage = () => {
               <FromInputs ref={register} number={8} /> */}
 
               {/* Inputの数を入れるところ */}
-              <HStack w="100%" spacing={0}>
+              <HStack w="100%" spacing={2}>
                 <Box alignItems="center" mx="4" display="flex">
                   数
                 </Box>
                 <InputGroup w="100%">
                   <NumberInput
-                    step={1}
-                    defaultValue={10}
-                    min={1}
-                    max={100}
+                    // step={1}
+                    // defaultValue={10}
+                    // min={1}
+                    // max={100}
                     w="100%"
                   >
-                    <NumberInputField
+                    <Input
                       w="100%"
                       value={InputCounts}
                       onChange={(
@@ -122,26 +142,30 @@ const makePage = () => {
                         }
                         setInputCounts(event.target.value);
                       }}
+                      ref={register}
+                      name="test"
+                      {...input}
                     />
-                    <NumberInputStepper>
-                      <NumberIncrementStepper
-                        onClick={() => {
-                          setInputCounts(InputCounts + 1);
-                        }}
-                      />
-                      <NumberDecrementStepper
-                        onClick={() => {
-                          setInputCounts(InputCounts - 1);
-                        }}
-                      />
-                    </NumberInputStepper>
                   </NumberInput>
                 </InputGroup>
+                <IconButton
+                  aria-label="行を追加"
+                  icon={<TopcoatPlus />}
+                  onClick={() => setInputCounts(InputCounts + 1)}
+                  {...inc}
+                />
+                <IconButton
+                  aria-label="行を削除"
+                  icon={<TopcoatMinus />}
+                  onClick={() => setInputCounts(InputCounts - 1)}
+                  {...dec}
+                />
               </HStack>
+
               {/* Inputの数を入れるところ終わり */}
             </VStack>
           </Box>
-          <Button
+          {/* <Button
             w="100%"
             mb="8"
             bg="blue.300"
@@ -151,10 +175,9 @@ const makePage = () => {
             _active={{ background: "blue.200" }}
           >
             行を追加
-          </Button>
+          </Button> */}
           {errors.exampleRequired && <span>This field is required</span>}
-
-          <Button w="100%" bg="red.500" type="submit">
+          <Button w="100%" bg="red.500" type="submit" mt={2}>
             送信
           </Button>
         </form>
