@@ -148,9 +148,11 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
                     />
                     <Heading
                       ml="2"
-                      fontSize="xl"
+                      fontSize="2xl"
                       textAlign={["center", "center"]}
                       color={useColorModeValue("#000", "#fff")}
+                      display="flex"
+                      alignItems="center"
                     >
                       名無し
                     </Heading>
