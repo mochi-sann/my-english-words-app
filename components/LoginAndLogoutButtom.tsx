@@ -95,7 +95,7 @@ const LoginPage = () => {
                   // border="2px"
                   borderColor={Bordercolor}
                   className="border-2"
-                  name={user.providerData[0].displayName}
+                  // name={user.providerData[0].displayName}
                   src={user.providerData[0].photoURL}
                 />
               </MenuButton>

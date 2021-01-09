@@ -13,6 +13,7 @@ import {
   IconButton,
   useNumberInput,
   Input,
+  InputLeftAddon,
 } from "@chakra-ui/react";
 // import { db } from "~/lib/firebase.ts";
 
@@ -96,7 +97,7 @@ const makePage = () => {
               </Box>
             </HStack>
             <VStack spacing={0}>
-              {(() => {
+              {/* {(() => {
                 const items = [];
                 for (let i = 1; i <= InputCounts; i++) {
                   items.push(
@@ -106,15 +107,53 @@ const makePage = () => {
                   );
                 }
                 return <>{items}</>;
-              })()}
-              {/* <FromInputs ref={register} number={1} />
+              })()} */}
+              <FromInputs ref={register} number={1} />
               <FromInputs ref={register} number={2} />
               <FromInputs ref={register} number={3} />
               <FromInputs ref={register} number={4} />
               <FromInputs ref={register} number={5} />
               <FromInputs ref={register} number={6} />
               <FromInputs ref={register} number={7} />
-              <FromInputs ref={register} number={8} /> */}
+              <FromInputs ref={register} number={8} />
+
+              <div>
+                <HStack
+                  w="100%"
+                  pt="2"
+                  pb="2"
+                  marginTop="0px"
+                  borderTop="1px"
+                  borderTopColor="gray.200"
+                >
+                  {/* <Box px="0" w="20px" textAlign="center">
+          {number}
+        </Box> */}
+                  <InputGroup w="50%">
+                    <InputLeftAddon> {"10"}</InputLeftAddon>
+                    <Input
+                      defaultValue={"Japanese:" + "10"}
+                      w="100%"
+                      h="40px"
+                      name={"Japanese-" + "10"}
+                      placeholder={"日本語:" + "10"}
+                      ref={register}
+                    />
+                  </InputGroup>
+                  <Box px="0px" ml="0" w="50%">
+                    <Input
+                      defaultValue={"Englsh:" + "10"}
+                      w="100%"
+                      h="40px"
+                      // px="0px"
+                      ml="0"
+                      name={"Englsh-" + "10"}
+                      placeholder={"Engls:" + "10"}
+                      ref={register}
+                    />
+                  </Box>
+                </HStack>
+              </div>
 
               {/* Inputの数を入れるところ */}
               <HStack w="100%" spacing={2}>
