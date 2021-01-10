@@ -1,7 +1,7 @@
 {
   "editor.formatOnSaveMode": "modifications",
   "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 3000,
+  "files.autoSaveDelay": 1000,
   "editor.formatOnSave": true, // <-- prettierで整形
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true // <-- eslintでリント
