@@ -83,7 +83,8 @@ const makePage = () => {
                 py="6px"
                 fontWeight={600}
               >
-                日本語
+                日本語だよこんにちは私は須藤モユルです
+                こんにちはーーーーーーーーーーーーー
               </Box>
               <Box
                 fontSize="xl"
@@ -115,6 +116,8 @@ const makePage = () => {
               <FromInputs ref={register} number={5} />
               <FromInputs ref={register} number={6} />
               <FromInputs ref={register} number={7} />
+              <FromInputs ref={register} number={8} />
+              <FromInputs ref={register} number={8} />
               <FromInputs ref={register} number={8} />
 
               <div>

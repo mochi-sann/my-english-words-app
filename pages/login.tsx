@@ -17,7 +17,7 @@ const LoginPage = () => {
         leftIcon={<LogosGoogleIcon className="w-5 h-5" />}
         onClick={login}
       >
-        <Text ml="3">Sign in with Google</Text>
+        <Text ml="3">Google</Text>
       </Button>
     </Layout>
   );

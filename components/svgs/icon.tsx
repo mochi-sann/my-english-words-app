@@ -19,7 +19,7 @@ export function FaSolidMoon(props: SVGProps<SVGSVGElement>) {
 }
 
 export function IcRoundWbSunny(props: SVGProps<SVGSVGElement>) {
-  // 太陽
+  // sun icon
   return (
     <svg
       focusable="false"
