@@ -14,12 +14,12 @@ const IndexPage = () => (
     <NextLink href="/make">
       <Link href="/make">問題集を作る</Link>
     </NextLink>
-    <Lists />
-    <Lists />
-    <Lists />
-    <Lists />
-    <Lists />
-    <Lists />
+    <Lists href="/make" title="タイトルとかを入れるところ" />
+    <Lists href="/make" title="タイトルとかを入れるところ" />
+    <Lists href="/make" title="タイトルとかを入れるところ" />
+    <Lists href="/make" title="タイトルとかを入れるところ" />
+    <Lists href="/make" title="タイトルとかを入れるところ" />
+    <Lists href="/make" title="タイトルとかを入れるところ" />
     {/* <h2>こんにちは</h2> */}
   </Layout>
 );
