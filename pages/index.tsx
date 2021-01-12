@@ -1,18 +1,25 @@
 import Layout from "../components/Layout";
 import React from "react";
 import NextLink from "next/link";
-import { Text, Link } from "@chakra-ui/react";
+import { Text, Link, Button } from "@chakra-ui/react";
 
 import Lists from "~/components/Enlish-Lists";
 
+import { PhNotePencilBold } from "~/components/svgs/icon";
+
 const IndexPage = () => (
   <Layout title="Home | Next.js + TypeScript Example">
-    <Text className=" text-3xl font-semibold">
-      Hello Next.js Docker Eslint prettierr TypeScript Jest tailwindcss
-      chakra-ui Example 👋
-    </Text>
     <NextLink href="/make">
-      <Link href="/make">問題集を作る</Link>
+      <Button
+        leftIcon={<PhNotePencilBold className="w-8 h-8" />}
+        size="lg"
+        my="2"
+        colorScheme="blue"
+        w="100%"
+        href="/make"
+      >
+        問題集を作る
+      </Button>
     </NextLink>
     <Lists href="/make" title="タイトルとかを入れるところ" />
     <Lists href="/make" title="タイトルとかを入れるところ" />

@@ -136,3 +136,21 @@ export function LogosGoogleIcon(props: SVGProps<SVGSVGElement>) {
     </svg>
   );
 }
+
+export function PhNotePencilBold(props: SVGProps<SVGSVGElement>) {
+  // noteアイコン
+  return (
+    <svg
+      focusable="false"
+      width="1em"
+      height="1em"
+      viewBox="0 0 256 256"
+      {...props}
+    >
+      <path
+        d="M232.485 55.515l-32-32a12 12 0 0 0-16.97 0l-96 96A12.002 12.002 0 0 0 84 128v32a12 12 0 0 0 12 12h32a12 12 0 0 0 8.485-3.515l96-96a12 12 0 0 0 0-16.97zM192 48.97L207.03 64L196 75.03L180.97 60zM123.03 148H108v-15.03l56-56L179.03 92zM228 128.568V208a20.023 20.023 0 0 1-20 20H48a20.023 20.023 0 0 1-20-20V48a20.022 20.022 0 0 1 20-20h79.432a12 12 0 0 1 0 24H52v152h152v-75.432a12 12 0 0 1 24 0z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  );
+}
