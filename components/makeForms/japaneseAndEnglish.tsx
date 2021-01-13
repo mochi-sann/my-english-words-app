@@ -33,16 +33,8 @@ const Wordinput = ({ lang, number }: WordinputProps) => {
 };
 
 const Test = ({ number }: Inputs) => {
-  const { meta } = useField("135234");
-
   return (
-    <FormControl
-      isInvalid={meta.error && meta.touched}
-      id={": ad" + number}
-      // id="test"
-      as="fieldset"
-      name="aaaaaaaaa"
-    >
+    <>
       <HStack
         w="100%"
         pt="2"
@@ -56,7 +48,7 @@ const Test = ({ number }: Inputs) => {
         <Wordinput lang="English" number={number} />
       </HStack>
       {/* <Wordinput lang="English" number={number} /> */}
-    </FormControl>
+    </>
   );
 };
 export default Test;

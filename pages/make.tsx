@@ -81,14 +81,73 @@ const MyForm = () => {
     <Form
       onSubmit={onSubmit}
       initialValues={{ stooge: "larry", employed: false }}
-      render={({ handleSubmit, form, values }) => (
+      mutators={{
+        ...arrayMutators,
+      }}
+      render={({
+        handleSubmit,
+        form: {
+          mutators: { push, pop },
+        }, // injected from final-form-arrays above
+        pristine,
+        form,
+        submitting,
+        values,
+      }) => (
         <form onSubmit={handleSubmit}>
           {/* <FromInputs number={1} />
           <FromInputs number={2} />
           <FromInputs number={3} />
           <FromInputs number={4} /> */}
 
-          {(() => {
+          <Box>
+            <div>
+              <label>Company</label>
+              <Field name="company" component="input" />
+            </div>
+            <div className="buttons">
+              <button
+                type="button"
+                onClick={() => push("customers", undefined)}
+              >
+                Add Customer
+              </button>
+              <button type="button" onClick={() => pop("customers")}>
+                Remove Customer
+              </button>
+            </div>
+            <Box>
+              {/* 英単語の問題を入れるところ */}
+              <FieldArray name="customers">
+                {({ fields }) =>
+                  fields.map((name, index) => (
+                    <div key={name}>
+                      <label>Cust. #{index + 1}</label>
+                      {/* <FromInputs number={index} /> */}
+                      <Wordinput lang="日本語" number={index} />
+                      <Field
+                        name={`${name}.firstName`}
+                        component="input"
+                        placeholder="First Name"
+                      />
+                      <Field
+                        name={`${name}.lastName`}
+                        component="input"
+                        placeholder="Last Name"
+                      />
+                      <span
+                        onClick={() => fields.remove(index)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        ❌
+                      </span>
+                    </div>
+                  ))
+                }
+              </FieldArray>
+            </Box>
+          </Box>
+          {/* {(() => {
             // 英に日本語の問題集を作るInputを入れるとこ
             const items = [];
             for (let i = 1; i <= InputCounts; i++) {
@@ -152,7 +211,7 @@ const MyForm = () => {
             >
               リセット
             </Button>
-          </div>
+          </div> */}
           <Code>{JSON.stringify(values, 2, 2)}</Code>
         </form>
       )}
@@ -160,3 +219,25 @@ const MyForm = () => {
   );
 };
 export default makePage;
+type WordinputProps = {
+  lang: "日本語" | "English";
+  number: number;
+};
+const Wordinput = ({ lang, number }: WordinputProps) => {
+  const { input, meta } = useField(lang + ":" + number);
+  return (
+    <>
+      <Input
+        {...input}
+        isInvalid={meta.error && meta.touched}
+        id={lang + ":" + number}
+        placeholder={lang + ":" + number}
+        defaultValue={"lang" + ":" + "number"}
+        w="100%"
+        h="40px"
+        // name={"Japanese-asdfasdfa"}
+        // placeholder={"日本語:" + number}
+      />
+    </>
+  );
+};
