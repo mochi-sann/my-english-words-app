@@ -46,7 +46,8 @@ export const WordBordNameInput = ({ name }: WordBordNameInputProps) => {
         isInvalid={meta.error && meta.touched}
         id={name}
         placeholder={"タイトルを入れてください"}
-        defaultValue={"lang" + ":" + "number"}
+        // value="無題"
+        defaultValue="無題"
         w="100%"
         h="40px"
         // name={"Japanese-asdfasdfa"}

@@ -16,6 +16,8 @@ import {
   Flex,
   Center,
   Tooltip,
+  useColorModeValue,
+  IconButton,
 } from "@chakra-ui/react";
 
 // import { db } from "~/lib/firebase.ts";
@@ -25,7 +27,7 @@ import {
   WordBordNameInput,
 } from "~/components/makeForms/japaneseAndEnglish.tsx";
 
-// import { TopcoatPlus, TopcoatMinus } from "~/components/svgs/icon.tsx";
+import { IcomoonFreeCross } from "~/components/svgs/icon.tsx";
 // import { type } from "os";
 
 // type Inputs = {
@@ -145,7 +147,12 @@ const MyForm = () => {
                     <div key={name}>
                       <hr className="my-2" />
                       <HStack my={2}>
-                        <Flex rounded="lg" w={10} h={10} bg="gray.200">
+                        <Flex
+                          rounded="lg"
+                          w={10}
+                          h={10}
+                          bg={useColorModeValue("gray.200", "gray.700")}
+                        >
                           <Center w="100px" bg="">
                             <Text>{index + 1}</Text>
                           </Center>
@@ -162,12 +169,12 @@ const MyForm = () => {
                           number={23}
                         />
                         <Tooltip label="削除する">
-                          <Button
+                          <IconButton
+                            aria-label="remove-word"
                             onClick={() => fields.remove(index)}
                             style={{ cursor: "pointer" }}
-                          >
-                            ✖
-                          </Button>
+                            icon={<IcomoonFreeCross />}
+                          />
                         </Tooltip>
                       </HStack>
                     </div>
