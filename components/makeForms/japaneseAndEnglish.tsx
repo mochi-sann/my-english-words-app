@@ -26,6 +26,7 @@ export const Wordinput = ({ lang, number, name }: WordinputProps) => {
         defaultValue={"lang" + ":" + "number"}
         w="100%"
         h="40px"
+
         // name={"Japanese-asdfasdfa"}
         // placeholder={"日本語:" + number}
       />

@@ -10,14 +10,12 @@ import {
   Box,
   Code,
   Heading,
-  Input,
   Text,
   HStack,
-  Stack,
   Button,
-  IconButton,
   Flex,
   Center,
+  Tooltip,
 } from "@chakra-ui/react";
 
 // import { db } from "~/lib/firebase.ts";
@@ -107,25 +105,25 @@ const MyForm = () => {
 
           <Box>
             <HStack w="100%">
-              <Text w={10} textAlign="center">
-                名前
+              <Text w={20} textAlign="center">
+                タイトル
               </Text>
               <WordBordNameInput name="title" />
               {/* <Field name="company" component="input" /> */}
             </HStack>
-            <div className="buttons">
+
+            <HStack my={4} spacing="10px">
               <Button
-                ml={0}
+                // ml={0}
                 // type="button"
-                m={2}
+                // m={2}
                 onClick={() => push("customers", undefined)}
               >
                 行を追加
               </Button>
               <Button
-                ml={0}
                 // type="button"
-                m={2}
+                // m={2}
                 onClick={() => {
                   for (let i = 0; i < 10; i++) {
                     push("customers", undefined);
@@ -134,16 +132,18 @@ const MyForm = () => {
               >
                 10行追加
               </Button>
-              <Button m={2} colorScheme="red" onClick={() => pop("customers")}>
+              <Button colorScheme="red" onClick={() => pop("customers")}>
                 行を削除
               </Button>
-            </div>
+            </HStack>
+
             <Box>
               {/* 英単語の問題を入れるところ */}
               <FieldArray name="customers">
                 {({ fields }) =>
                   fields.map((name, index) => (
                     <div key={name}>
+                      <hr className="my-2" />
                       <HStack my={2}>
                         <Flex rounded="lg" w={10} h={10} bg="gray.200">
                           <Center w="100px" bg="">
@@ -161,13 +161,14 @@ const MyForm = () => {
                           lang="English"
                           number={23}
                         />
-
-                        <Button
-                          onClick={() => fields.remove(index)}
-                          style={{ cursor: "pointer" }}
-                        >
-                          ❌
-                        </Button>
+                        <Tooltip label="削除する">
+                          <Button
+                            onClick={() => fields.remove(index)}
+                            style={{ cursor: "pointer" }}
+                          >
+                            ✖
+                          </Button>
+                        </Tooltip>
                       </HStack>
                     </div>
                   ))
@@ -185,14 +186,14 @@ const MyForm = () => {
             >
               送信する
             </Button>
-            <Button
+            {/* <Button
               m={2}
               type="button"
               onClick={form.reset}
               // disabled={submitting || pristine}
             >
               リセット
-            </Button>
+            </Button> */}
           </div>
           <Code>{JSON.stringify(values, 2, 2)}</Code>
         </form>
