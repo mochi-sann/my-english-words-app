@@ -10,18 +10,41 @@ type Inputs = {
 
 type WordinputProps = {
   lang: "日本語" | "English";
+  name: string;
   number: number;
 };
 
-const Wordinput = ({ lang, number }: WordinputProps) => {
-  const { input, meta } = useField(lang + ":" + number);
+export const Wordinput = ({ lang, number, name }: WordinputProps) => {
+  const { input, meta } = useField(name);
   return (
     <>
       <Input
         {...input}
         isInvalid={meta.error && meta.touched}
-        id={lang + ":" + number}
-        placeholder={lang + ":" + number}
+        id={name}
+        placeholder={lang}
+        defaultValue={"lang" + ":" + "number"}
+        w="100%"
+        h="40px"
+        // name={"Japanese-asdfasdfa"}
+        // placeholder={"日本語:" + number}
+      />
+    </>
+  );
+};
+type WordBordNameInputProps = {
+  name: string;
+};
+
+export const WordBordNameInput = ({ name }: WordBordNameInputProps) => {
+  const { input, meta } = useField(name);
+  return (
+    <>
+      <Input
+        {...input}
+        isInvalid={meta.error && meta.touched}
+        id={name}
+        placeholder={"タイトルを入れてください"}
         defaultValue={"lang" + ":" + "number"}
         w="100%"
         h="40px"
@@ -44,8 +67,8 @@ const Test = ({ number }: Inputs) => {
         borderTopColor="gray.200"
       >
         <Box>{number}</Box>
-        <Wordinput lang="日本語" number={number} />
-        <Wordinput lang="English" number={number} />
+        <Wordinput name="a" lang="日本語" number={number} />
+        <Wordinput name="a" lang="English" number={number} />
       </HStack>
       {/* <Wordinput lang="English" number={number} /> */}
     </>

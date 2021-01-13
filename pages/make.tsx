@@ -6,11 +6,26 @@ import { Form, useField, Field } from "react-final-form";
 import arrayMutators from "final-form-arrays";
 import { FieldArray } from "react-final-form-arrays";
 
-import { Box, Code, Heading, Input } from "@chakra-ui/react";
+import {
+  Box,
+  Code,
+  Heading,
+  Input,
+  Text,
+  HStack,
+  Stack,
+  Button,
+  IconButton,
+  Flex,
+  Center,
+} from "@chakra-ui/react";
 
 // import { db } from "~/lib/firebase.ts";
 
-// import FromInputs from "~/components/makeForms/japaneseAndEnglish.tsx";
+import {
+  Wordinput,
+  WordBordNameInput,
+} from "~/components/makeForms/japaneseAndEnglish.tsx";
 
 // import { TopcoatPlus, TopcoatMinus } from "~/components/svgs/icon.tsx";
 // import { type } from "os";
@@ -91,20 +106,37 @@ const MyForm = () => {
           <FromInputs number={4} /> */}
 
           <Box>
-            <div>
-              <label>Company</label>
-              <Field name="company" component="input" />
-            </div>
+            <HStack w="100%">
+              <Text w={10} textAlign="center">
+                名前
+              </Text>
+              <WordBordNameInput name="title" />
+              {/* <Field name="company" component="input" /> */}
+            </HStack>
             <div className="buttons">
-              <button
-                type="button"
+              <Button
+                ml={0}
+                // type="button"
+                m={2}
                 onClick={() => push("customers", undefined)}
               >
-                Add Customer
-              </button>
-              <button type="button" onClick={() => pop("customers")}>
-                Remove Customer
-              </button>
+                行を追加
+              </Button>
+              <Button
+                ml={0}
+                // type="button"
+                m={2}
+                onClick={() => {
+                  for (let i = 0; i < 10; i++) {
+                    push("customers", undefined);
+                  }
+                }}
+              >
+                10行追加
+              </Button>
+              <Button m={2} colorScheme="red" onClick={() => pop("customers")}>
+                行を削除
+              </Button>
             </div>
             <Box>
               {/* 英単語の問題を入れるところ */}
@@ -112,96 +144,56 @@ const MyForm = () => {
                 {({ fields }) =>
                   fields.map((name, index) => (
                     <div key={name}>
-                      <label>Cust. #{index + 1}</label>
-                      {/* <FromInputs number={index} /> */}
-                      <Wordinput lang="日本語" number={index} />
-                      <Field
-                        name={`${name}.firstName`}
-                        component="input"
-                        placeholder="First Name"
-                      />
-                      <Field
-                        name={`${name}.lastName`}
-                        component="input"
-                        placeholder="Last Name"
-                      />
-                      <span
-                        onClick={() => fields.remove(index)}
-                        style={{ cursor: "pointer" }}
-                      >
-                        ❌
-                      </span>
+                      <HStack my={2}>
+                        <Flex rounded="lg" w={10} h={10} bg="gray.200">
+                          <Center w="100px" bg="">
+                            <Text>{index + 1}</Text>
+                          </Center>
+                        </Flex>
+                        {/* <FromInputs number={index} /> */}
+                        <Wordinput
+                          name={`${name}.japanese`}
+                          lang="日本語"
+                          number={23}
+                        />
+                        <Wordinput
+                          name={`${name}.english`}
+                          lang="English"
+                          number={23}
+                        />
+
+                        <Button
+                          onClick={() => fields.remove(index)}
+                          style={{ cursor: "pointer" }}
+                        >
+                          ❌
+                        </Button>
+                      </HStack>
                     </div>
                   ))
                 }
               </FieldArray>
             </Box>
           </Box>
-          {/* {(() => {
-            // 英に日本語の問題集を作るInputを入れるとこ
-            const items = [];
-            for (let i = 1; i <= InputCounts; i++) {
-              items.push(
-                <>
-                  <FromInputs number={i} />
-                </>
-              );
-            }
-            return <>{items}</>;
-          })()}
-
-          <HStack>
-            <Input placeholder="Basic usage" value={InputCounts} />
-            <InputCountsvalue InputCounts={InputCounts} />
-            <Button
-              leftIcon={<TopcoatPlus />}
-              colorScheme="blue"
-              m="2"
-              onClick={() => setInputCounts(InputCounts + 10)}
-            >
-              10
-            </Button>
-            <IconButton
-              aria-label="行を追加"
-              icon={<TopcoatPlus />}
-              colorScheme="blue"
-              m="2"
-              onClick={() => setInputCounts(InputCounts + 1)}
-            />
-            <IconButton
-              aria-label="行を削除"
-              icon={<TopcoatMinus />}
-              colorScheme="blue"
-              m="2"
-              onClick={() => setInputCounts(InputCounts - 1)}
-            />
-            <Button
-              leftIcon={<TopcoatMinus />}
-              colorScheme="blue"
-              m="2"
-              onClick={() => setInputCounts(InputCounts - 10)}
-            >
-              10
-            </Button>
-          </HStack>
 
           <div className="buttons">
             <Button
-              m={4}
+              m={2}
+              ml={0}
               type="submit"
               // disabled={submitting || pristine}
             >
-              決定
+              送信する
             </Button>
             <Button
-              m={4}
+              m={2}
               type="button"
               onClick={form.reset}
               // disabled={submitting || pristine}
             >
               リセット
             </Button>
-          </div> */}
+          </div>
           <Code>{JSON.stringify(values, 2, 2)}</Code>
         </form>
       )}
@@ -209,25 +201,3 @@ const MyForm = () => {
   );
 };
 export default makePage;
-type WordinputProps = {
-  lang: "日本語" | "English";
-  number: number;
-};
-const Wordinput = ({ lang, number }: WordinputProps) => {
-  const { input, meta } = useField(lang + ":" + number);
-  return (
-    <>
-      <Input
-        {...input}
-        isInvalid={meta.error && meta.touched}
-        id={lang + ":" + number}
-        placeholder={lang + ":" + number}
-        defaultValue={"lang" + ":" + "number"}
-        w="100%"
-        h="40px"
-        // name={"Japanese-asdfasdfa"}
-        // placeholder={"日本語:" + number}
-      />
-    </>
-  );
-};
