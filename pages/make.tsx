@@ -2,7 +2,7 @@ import Layout from "../components/Layout";
 import React, { useState, useEffect } from "react";
 
 // import { useForm } from "react-hook-form";
-import { Form, useField, Field } from "react-final-form";
+import { Form } from "react-final-form";
 import arrayMutators from "final-form-arrays";
 import { FieldArray } from "react-final-form-arrays";
 
