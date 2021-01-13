@@ -1,7 +1,7 @@
 import Layout from "../components/Layout";
 import React from "react";
 import NextLink from "next/link";
-import { Text, Link, Button } from "@chakra-ui/react";
+import { Button } from "@chakra-ui/react";
 
 import Lists from "~/components/Enlish-Lists";
 

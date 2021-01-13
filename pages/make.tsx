@@ -6,23 +6,13 @@ import { Form, useField, Field } from "react-final-form";
 import arrayMutators from "final-form-arrays";
 import { FieldArray } from "react-final-form-arrays";
 
-import {
-  Box,
-  Button,
-  Code,
-  Heading,
-  NumberInput,
-  NumberInputField,
-  IconButton,
-  Input,
-  HStack,
-} from "@chakra-ui/react";
+import { Box, Code, Heading, Input } from "@chakra-ui/react";
 
 // import { db } from "~/lib/firebase.ts";
 
-import FromInputs from "~/components/makeForms/japaneseAndEnglish.tsx";
+// import FromInputs from "~/components/makeForms/japaneseAndEnglish.tsx";
 
-import { TopcoatPlus, TopcoatMinus } from "~/components/svgs/icon.tsx";
+// import { TopcoatPlus, TopcoatMinus } from "~/components/svgs/icon.tsx";
 // import { type } from "os";
 
 // type Inputs = {
@@ -42,21 +32,21 @@ const makePage = () => {
     </Layout>
   );
 };
-type InputCountsProps = { InputCounts: number };
-const InputCountsvalue = ({ InputCounts }: InputCountsProps) => {
-  const { input, meta } = useField("lang +  + number");
+// type InputCountsProps = { InputCounts: number };
+// const InputCountsvalue = ({ InputCounts }: InputCountsProps) => {
+//   const { input, meta } = useField("lang +  + number");
 
-  return (
-    <>
-      <Input
-        {...input}
-        isInvalid={meta.error && meta.touched}
-        placeholder="Basic usage"
-        value={InputCounts}
-      />
-    </>
-  );
-};
+//   return (
+//     <>
+//       <Input
+//         {...input}
+//         isInvalid={meta.error && meta.touched}
+//         placeholder="Basic usage"
+//         value={InputCounts}
+//       />
+//     </>
+//   );
+// };
 const MyForm = () => {
   const onSubmit = async (values: any) => {
     // await sleep(300);

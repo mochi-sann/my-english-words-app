@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Input, Box, HStack, FormControl } from "@chakra-ui/react";
+import { Input, Box, HStack } from "@chakra-ui/react";
 import { useField } from "react-final-form";
 // import { useForm } from "react-hook-form";
 
