@@ -1,6 +1,7 @@
 import React from "react";
 
 import { Input, Box, HStack } from "@chakra-ui/react";
+
 import { useField } from "react-final-form";
 // import { useForm } from "react-hook-form";
 
@@ -16,6 +17,7 @@ type WordinputProps = {
 
 export const Wordinput = ({ lang, number, name }: WordinputProps) => {
   const { input, meta } = useField(name);
+
   return (
     <>
       <Input
@@ -39,6 +41,8 @@ type WordBordNameInputProps = {
 
 export const WordBordNameInput = ({ name }: WordBordNameInputProps) => {
   const { input, meta } = useField(name);
+  // const [defaltText, setdefaltText] = useState("無題");
+
   return (
     <>
       <Input
@@ -47,9 +51,11 @@ export const WordBordNameInput = ({ name }: WordBordNameInputProps) => {
         id={name}
         placeholder={"タイトルを入れてください"}
         // value="無題"
+
         defaultValue="無題"
         w="100%"
         h="40px"
+
         // name={"Japanese-asdfasdfa"}
         // placeholder={"日本語:" + number}
       />
