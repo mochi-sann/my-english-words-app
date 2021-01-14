@@ -18,6 +18,7 @@ import {
   Tooltip,
   useColorModeValue,
   IconButton,
+  FormLabel,
 } from "@chakra-ui/react";
 
 // import { db } from "~/lib/firebase.ts";
@@ -25,9 +26,9 @@ import {
 import {
   Wordinput,
   WordBordNameInput,
-} from "~/components/makeForms/japaneseAndEnglish.tsx";
+} from "~/components/makeForms/japaneseAndEnglish";
 
-import { IcomoonFreeCross } from "~/components/svgs/icon.tsx";
+import { IcomoonFreeCross } from "~/components/svgs/icon";
 // import { type } from "os";
 
 // type Inputs = {
@@ -39,29 +40,15 @@ const makePage = () => {
   return (
     <Layout title="Home | Next.js + TypeScript Example">
       <Box mt="4">
-        <Heading m={4} as="h2">
-          英単語を作る
+        <Heading my={4} as="h1">
+          問題集を作る
         </Heading>
         <MyForm />
       </Box>
     </Layout>
   );
 };
-// type InputCountsProps = { InputCounts: number };
-// const InputCountsvalue = ({ InputCounts }: InputCountsProps) => {
-//   const { input, meta } = useField("lang +  + number");
 
-//   return (
-//     <>
-//       <Input
-//         {...input}
-//         isInvalid={meta.error && meta.touched}
-//         placeholder="Basic usage"
-//         value={InputCounts}
-//       />
-//     </>
-//   );
-// };
 const MyForm = () => {
   const onSubmit = async (values: any) => {
     // await sleep(300);
@@ -106,20 +93,18 @@ const MyForm = () => {
           <FromInputs number={4} /> */}
 
           <Box>
-            <HStack w="100%">
-              <Text w={20} textAlign="center">
-                タイトル
-              </Text>
+            <Box w="100%">
+              <FormLabel>タイトル</FormLabel>
               <WordBordNameInput name="title" />
               {/* <Field name="company" component="input" /> */}
-            </HStack>
+            </Box>
 
-            <HStack my={4} spacing="10px">
+            {/* <HStack my={4} spacing="10px">
               <Button
                 // ml={0}
                 // type="button"
                 // m={2}
-                onClick={() => push("customers", undefined)}
+                onClick={() => push("collection", undefined)}
               >
                 行を追加
               </Button>
@@ -128,20 +113,20 @@ const MyForm = () => {
                 // m={2}
                 onClick={() => {
                   for (let i = 0; i < 10; i++) {
-                    push("customers", undefined);
+                    push("collection", undefined);
                   }
                 }}
               >
                 10行追加
               </Button>
-              <Button colorScheme="red" onClick={() => pop("customers")}>
+              <Button colorScheme="red" onClick={() => pop("collection")}>
                 行を削除
               </Button>
-            </HStack>
+            </HStack> */}
 
             <Box>
               {/* 英単語の問題を入れるところ */}
-              <FieldArray name="customers">
+              <FieldArray name="collection">
                 {({ fields }) =>
                   fields.map((name, index) => (
                     <div key={name}>
@@ -182,10 +167,37 @@ const MyForm = () => {
                 }
               </FieldArray>
             </Box>
+            {/* 行を追加したり削除するところ */}
+
+            <HStack my={4} spacing="10px">
+              <Button
+                // ml={0}
+                // type="button"
+                // m={2}
+                onClick={() => push("collection", undefined)}
+              >
+                行を追加
+              </Button>
+              <Button
+                // type="button"
+                // m={2}
+                onClick={() => {
+                  for (let i = 0; i < 10; i++) {
+                    push("collection", undefined);
+                  }
+                }}
+              >
+                10行追加
+              </Button>
+              <Button colorScheme="red" onClick={() => pop("collection")}>
+                行を削除
+              </Button>
+            </HStack>
           </Box>
 
           <div className="buttons">
             <Button
+              colorScheme="blue"
               m={2}
               ml={0}
               type="submit"
