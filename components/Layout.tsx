@@ -197,15 +197,21 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
                     </Center>
                   </Container>
                 </Box>
+                <Container maxWidth="800px">
+                  <Text fontSize="2xl" fontWeight="600" my={4}>
+                    ログインすると使えます
+                  </Text>
+                </Container>
               </>
             ) : (
               // </NextLink>
-              <></>
+              <>
+                <Container maxWidth="800px">{children}</Container>
+              </>
             )
           }
         </AuthContext.Consumer>
         {/* メインの記事が入るところ */}
-        <Container maxWidth="800px">{children}</Container>
       </>
       {/* Footer */}
       <Box h="150px"></Box>

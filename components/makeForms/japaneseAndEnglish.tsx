@@ -12,10 +12,9 @@ type Inputs = {
 type WordinputProps = {
   lang: "日本語" | "English";
   name: string;
-  number: number;
 };
 
-export const Wordinput = ({ lang, number, name }: WordinputProps) => {
+export const Wordinput = ({ lang, name }: WordinputProps) => {
   const { input, meta } = useField(name);
 
   return (
@@ -75,8 +74,8 @@ const Test = ({ number }: Inputs) => {
         borderTopColor="gray.200"
       >
         <Box>{number}</Box>
-        <Wordinput name="a" lang="日本語" number={number} />
-        <Wordinput name="a" lang="English" number={number} />
+        <Wordinput name="a" lang="日本語" />
+        <Wordinput name="a" lang="English" />
       </HStack>
       {/* <Wordinput lang="English" number={number} /> */}
     </>

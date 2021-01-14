@@ -13,7 +13,7 @@ const IndexPage = () => (
       <Button
         leftIcon={<PhNotePencilBold className="w-8 h-8" />}
         size="lg"
-        my="2"
+        my="4"
         colorScheme="blue"
         w="100%"
         href="/make"
@@ -21,6 +21,7 @@ const IndexPage = () => (
         問題集を作る
       </Button>
     </NextLink>
+    <hr />
     <Lists href="/make" title="タイトルとかを入れるところ" />
     <Lists href="/make" title="タイトルとかを入れるところ" />
     <Lists href="/make" title="タイトルとかを入れるところ" />

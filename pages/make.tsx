@@ -8,7 +8,6 @@ import { FieldArray } from "react-final-form-arrays";
 
 import {
   Box,
-  Code,
   Heading,
   Text,
   HStack,
@@ -99,31 +98,6 @@ const MyForm = () => {
               {/* <Field name="company" component="input" /> */}
             </Box>
 
-            {/* <HStack my={4} spacing="10px">
-              <Button
-                // ml={0}
-                // type="button"
-                // m={2}
-                onClick={() => push("collection", undefined)}
-              >
-                行を追加
-              </Button>
-              <Button
-                // type="button"
-                // m={2}
-                onClick={() => {
-                  for (let i = 0; i < 10; i++) {
-                    push("collection", undefined);
-                  }
-                }}
-              >
-                10行追加
-              </Button>
-              <Button colorScheme="red" onClick={() => pop("collection")}>
-                行を削除
-              </Button>
-            </HStack> */}
-
             <Box>
               {/* 英単語の問題を入れるところ */}
               <FieldArray name="collection">
@@ -143,16 +117,8 @@ const MyForm = () => {
                           </Center>
                         </Flex>
                         {/* <FromInputs number={index} /> */}
-                        <Wordinput
-                          name={`${name}.japanese`}
-                          lang="日本語"
-                          number={23}
-                        />
-                        <Wordinput
-                          name={`${name}.english`}
-                          lang="English"
-                          number={23}
-                        />
+                        <Wordinput name={`${name}.japanese`} lang="日本語" />
+                        <Wordinput name={`${name}.english`} lang="English" />
                         <Tooltip label="削除する">
                           <IconButton
                             aria-label="remove-word"
@@ -214,7 +180,9 @@ const MyForm = () => {
               リセット
             </Button> */}
           </div>
-          <Code>{JSON.stringify(values, 2, 2)}</Code>
+          <div className="bg-gray-200 p-2 rounded-lg">
+            <code>{JSON.stringify(values, 2, 2)}</code>
+          </div>
         </form>
       )}
     />
