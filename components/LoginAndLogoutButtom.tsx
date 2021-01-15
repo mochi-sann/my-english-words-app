@@ -46,10 +46,11 @@ export const LoginDrawer = ({ isOpen, onClose, finalFocusRef }: any) => {
             <DrawerHeader>Login your account</DrawerHeader>
 
             <DrawerBody>
-              <Text>
+              <Text mb="4">
                 新規登録、ログインのどちらも以下のボタンから行うことができます。
               </Text>
               <Button
+                w="100%"
                 leftIcon={<LogosGoogleIcon className="w-5 h-5" />}
                 onClick={login}
               >

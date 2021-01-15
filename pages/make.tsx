@@ -18,6 +18,7 @@ import {
   useColorModeValue,
   IconButton,
   FormLabel,
+  useToast,
 } from "@chakra-ui/react";
 
 // import { db } from "~/lib/firebase.ts";
@@ -54,19 +55,35 @@ const makePage = () => {
 
 const MyForm = () => {
   console.log(dayjs().valueOf());
+  const toast = useToast();
+
   const onSubmit = async (values: any) => {
     const user = auth!.currentUser;
     // await sleep(300);
     // window.alert(JSON.stringify(values, null, "\t"));
-
+    // Firebaseに送信するところ
     try {
       await db
         .collection("lists")
         .doc(user!.uid) // userのuidごとに別れて格納されるようにする
-        .collection(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS" + values.title)) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
+        .collection(
+          dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS" + 123 + values.title)
+        ) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
         .doc(values.title)
         .set(values);
+      toast({
+        description: "送信できました!",
+        status: "success",
+        duration: 4000,
+        isClosable: true,
+      });
     } catch (error) {
+      toast({
+        description: "送信できませんでした!",
+        status: "error",
+        duration: 4000,
+        isClosable: true,
+      });
       console.log(error);
       console.log("firebaseに書き込めませんでした");
     }

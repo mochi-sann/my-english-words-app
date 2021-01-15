@@ -18,6 +18,7 @@ import {
   WrapItem,
   Center,
 } from "@chakra-ui/react";
+
 import AuthContext from "~/lib/AuthContext";
 
 import LoginWithGoogle, { LoginBtn } from "@components/LoginAndLogoutButtom";
@@ -186,7 +187,7 @@ const Layout = ({ children, title = "This is the default title" }: Props) => {
                     <Center>
                       <Wrap>
                         <WrapItem>
-                          <Text fontWeight="600" fontSize="3xl">
+                          <Text fontWeight="600" fontSize="3xl" color="black">
                             ログイン
                           </Text>
                         </WrapItem>
