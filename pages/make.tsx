@@ -54,7 +54,6 @@ const makePage = () => {
 };
 
 const MyForm = () => {
-  console.log(dayjs().valueOf());
   const toast = useToast();
 
   const onSubmit = async (values: any) => {
@@ -93,7 +92,7 @@ const MyForm = () => {
   const [InputCounts, setInputCounts] = useState(10);
 
   useEffect(() => {
-    console.log(`InputCounts : ${InputCounts} `);
+    // console.log(`InputCounts : ${InputCounts} `);
     if (InputCounts > 100) {
       setInputCounts(100);
     } else if (InputCounts < 1) {
