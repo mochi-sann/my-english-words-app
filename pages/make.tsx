@@ -21,6 +21,7 @@ import {
 } from "@chakra-ui/react";
 
 // import { db } from "~/lib/firebase.ts";
+import dayjs from "dayjs";
 
 import {
   Wordinput,
@@ -28,6 +29,9 @@ import {
 } from "~/components/makeForms/japaneseAndEnglish";
 
 import { IcomoonFreeCross } from "~/components/svgs/icon";
+
+import { db, auth } from "~/lib/firebase";
+
 // import { type } from "os";
 
 // type Inputs = {
@@ -49,10 +53,24 @@ const makePage = () => {
 };
 
 const MyForm = () => {
+  console.log(dayjs().valueOf());
   const onSubmit = async (values: any) => {
+    const user = auth!.currentUser;
     // await sleep(300);
-    window.alert(JSON.stringify(values, 2, 2));
-    console.log(JSON.stringify(values, 2, 2));
+    // window.alert(JSON.stringify(values, null, "\t"));
+
+    try {
+      await db
+        .collection("lists")
+        .doc(user!.uid) // userのuidごとに別れて格納されるようにする
+        .collection(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS" + values.title)) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
+        .doc(values.title)
+        .set(values);
+    } catch (error) {
+      console.log(error);
+      console.log("firebaseに書き込めませんでした");
+    }
+    console.log(JSON.stringify(values, null, "\t"));
   };
 
   const [InputCounts, setInputCounts] = useState(10);
@@ -81,8 +99,8 @@ const MyForm = () => {
           mutators: { push, pop },
         }, // injected from final-form-arrays above
         pristine,
-        form,
-        submitting,
+        // form,
+        // submitting,
         values,
       }) => (
         <form onSubmit={handleSubmit}>
@@ -167,6 +185,7 @@ const MyForm = () => {
               m={2}
               ml={0}
               type="submit"
+              disabled={pristine}
               // disabled={submitting || pristine}
             >
               送信する
@@ -181,7 +200,7 @@ const MyForm = () => {
             </Button> */}
           </div>
           <div className="bg-gray-200 p-2 rounded-lg">
-            <code>{JSON.stringify(values, 2, 2)}</code>
+            <code>{JSON.stringify(values, null, "\r")}</code>
           </div>
         </form>
       )}

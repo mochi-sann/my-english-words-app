@@ -75,6 +75,11 @@ export const listenAuthState = (dispatch: any) => {
     }
   });
 };
+
+export const firebaseUser = () => {
+  return firebase.auth().currentUser;
+};
+
 // Logout
 export const logout = () => {
   auth.signOut().then(() => {
