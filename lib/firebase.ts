@@ -21,7 +21,7 @@ const config = {
 !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
 
 // export const db = firebase.firestore(); // If you need it
-
+// firebase.analytics();
 // export const analytics = firebase.analytics();
 export const auth = firebase.auth();
 

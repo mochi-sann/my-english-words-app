@@ -167,8 +167,8 @@ const MyForm = () => {
                 }
               </FieldArray>
             </Box>
-            {/* 行を追加したり削除するところ */}
 
+            {/* 行を追加したり削除するところ */}
             <HStack my={4} spacing="10px">
               <Button
                 // ml={0}
