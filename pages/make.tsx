@@ -42,7 +42,7 @@ import { db, auth } from "~/lib/firebase";
 
 const makePage = () => {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout title="問題集を作る">
       <Box mt="4">
         <Heading my={4} as="h1">
           問題集を作る

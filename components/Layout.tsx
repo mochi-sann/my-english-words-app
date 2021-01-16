@@ -24,7 +24,7 @@ import AuthContext from "~/lib/AuthContext";
 import LoginWithGoogle, { LoginBtn } from "@components/LoginAndLogoutButtom";
 
 import { FaSolidMoon, IcRoundWbSunny } from "~/components/svgs/icon";
-import HeadsDeta from "~/components/HeadsDetas.tsx";
+import HeadsDeta from "~/components/HeadsDetas";
 
 function ChangeDarkModeAndLightMode() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -45,8 +45,9 @@ type Props = {
   title?: string;
 };
 
-const Layout = ({ children, title = "This is the default title" }: Props) => {
+const Layout = ({ children, title = "No title" }: Props) => {
   const headerBg = useColorModeValue("#fff", "gray.900");
+  // analytics.logEvent("notification_received");
 
   // const HeaderTextColor = useColorModeValue("#000", "#fff");
   return (

@@ -6,9 +6,10 @@ import { Button } from "@chakra-ui/react";
 import Lists from "~/components/Enlish-Lists";
 
 import { PhNotePencilBold } from "~/components/svgs/icon";
+import WordLists from "components/WordLists/WordLists";
 
 const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
+  <Layout title="Home">
     <NextLink href="/make">
       <Button
         leftIcon={<PhNotePencilBold className="w-8 h-8" />}
@@ -22,6 +23,7 @@ const IndexPage = () => (
       </Button>
     </NextLink>
     <hr />
+    <WordLists />
     <Lists href="/make" title="タイトルとかを入れるところ" />
     <Lists href="/make" title="タイトルとかを入れるところ" />
     <Lists href="/make" title="タイトルとかを入れるところ" />
