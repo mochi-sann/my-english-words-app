@@ -20,10 +20,12 @@ import {
 } from "@chakra-ui/react";
 
 import AuthContext from "~/lib/AuthContext";
+// import { analytics } from "~/lib/firebase";
 
 import LoginWithGoogle, { LoginBtn } from "@components/LoginAndLogoutButtom";
 
 import { FaSolidMoon, IcRoundWbSunny } from "~/components/svgs/icon";
+
 import HeadsDeta from "~/components/HeadsDetas";
 
 function ChangeDarkModeAndLightMode() {
@@ -48,6 +50,7 @@ type Props = {
 const Layout = ({ children, title = "No title" }: Props) => {
   const headerBg = useColorModeValue("#fff", "gray.900");
   // analytics.logEvent("notification_received");
+  // analytics.logEvent("open");
 
   // const HeaderTextColor = useColorModeValue("#000", "#fff");
   return (

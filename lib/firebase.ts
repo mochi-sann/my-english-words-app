@@ -4,7 +4,7 @@ import "firebase/firestore";
 
 // import "firebase/storage"; // If you need it
 
-// import "firebase/analytics"; // If you need it
+import "firebase/analytics"; // If you need it
 // import "firebase/performance";
 
 // import admin from "firebase-admin";
@@ -18,11 +18,11 @@ const config = {
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
 };
-
 !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
 
 // export const db = firebase.firestore(); // If you need it
 
+// export const analytics = firebase.analytics();
 export const auth = firebase.auth();
 
 export const login = () => {

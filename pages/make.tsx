@@ -30,7 +30,6 @@ import {
 } from "~/components/makeForms/japaneseAndEnglish";
 
 import { IcomoonFreeCross } from "~/components/svgs/icon";
-
 import { db, auth } from "~/lib/firebase";
 
 // import { type } from "os";
@@ -70,6 +69,7 @@ const MyForm = () => {
         ) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
         .doc(values.title)
         .set(values);
+      // analytics.logEvent("Create Forms");
       toast({
         description: "送信できました!",
         status: "success",
