@@ -20,6 +20,7 @@ import {
   FormLabel,
   useToast,
 } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 
 // import { db } from "~/lib/firebase.ts";
 import dayjs from "dayjs";
@@ -76,6 +77,7 @@ const MyForm = () => {
         duration: 4000,
         isClosable: true,
       });
+      useRouter().push("/"); // 送信が完了したらホームページに戻る
     } catch (error) {
       toast({
         description: "送信できませんでした!",
