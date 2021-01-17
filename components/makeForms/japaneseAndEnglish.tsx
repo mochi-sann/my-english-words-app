@@ -74,8 +74,8 @@ const Test = ({ number }: Inputs) => {
         borderTopColor="gray.200"
       >
         <Box>{number}</Box>
-        <Wordinput name="a" lang="日本語" />
         <Wordinput name="a" lang="English" />
+        <Wordinput name="a" lang="日本語" />
       </HStack>
       {/* <Wordinput lang="English" number={number} /> */}
     </>

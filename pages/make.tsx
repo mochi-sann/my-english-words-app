@@ -66,9 +66,12 @@ const MyForm = () => {
       await db
         .collection("lists")
         .doc(user!.uid) // userのuidごとに別れて格納されるようにする
-        .collection(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
-        .doc("doc")
-        .set(values);
+        .collection(user!.uid) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
+        .doc(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title)
+        .set({
+          capital: true,
+          values,
+        });
       // analytics.logEvent("Create Forms");
       toast({
         description: "送信できました!",
@@ -154,8 +157,8 @@ const MyForm = () => {
                           </Center>
                         </Flex>
                         {/* <FromInputs number={index} /> */}
-                        <Wordinput name={`${name}.japanese`} lang="日本語" />
                         <Wordinput name={`${name}.english`} lang="English" />
+                        <Wordinput name={`${name}.japanese`} lang="日本語" />
                         <Tooltip label="削除する">
                           <IconButton
                             aria-label="remove-word"
