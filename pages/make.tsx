@@ -55,6 +55,7 @@ const makePage = () => {
 
 const MyForm = () => {
   const toast = useToast();
+  const router = useRouter();
 
   const onSubmit = async (values: any) => {
     const user = auth!.currentUser;
@@ -65,19 +66,19 @@ const MyForm = () => {
       await db
         .collection("lists")
         .doc(user!.uid) // userのuidごとに別れて格納されるようにする
-        .collection(
-          dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS" + 123 + values.title)
-        ) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
-        .doc(values.title)
+        .collection(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
+        .doc("doc")
         .set(values);
       // analytics.logEvent("Create Forms");
       toast({
         description: "送信できました!",
         status: "success",
-        duration: 4000,
+        duration: 2000,
         isClosable: true,
       });
-      useRouter().push("/"); // 送信が完了したらホームページに戻る
+      router.push("/"); // 送信が完了したらホームページに戻る
+
+      // useRouter().push("/");
     } catch (error) {
       toast({
         description: "送信できませんでした!",
@@ -117,8 +118,8 @@ const MyForm = () => {
           mutators: { push, pop },
         }, // injected from final-form-arrays above
         pristine,
-        // form,
-        // submitting,
+        form,
+        submitting,
         values,
       }) => (
         <form onSubmit={handleSubmit}>
@@ -217,8 +218,19 @@ const MyForm = () => {
               リセット
             </Button> */}
           </div>
-          <div className="bg-gray-200 p-2 rounded-lg">
-            <code>{JSON.stringify(values, null, "\r")}</code>
+          <div>
+            <Box className="bg-gray-200 p-2 rounded-lg" as="pre">
+              {JSON.stringify(values, null, 2)}
+            </Box>
+            <Box className="bg-gray-200 p-2 rounded-lg my-2" as="pre">
+              {JSON.stringify(pristine, null, 2)}
+            </Box>
+            <Box className="bg-gray-200 p-2 rounded-lg my-2" as="pre">
+              {JSON.stringify(form, null, 2)}
+            </Box>
+            <Box className="bg-gray-200 p-2 rounded-lg my-2" as="pre">
+              {JSON.stringify(submitting, null, 2)}
+            </Box>
           </div>
         </form>
       )}
