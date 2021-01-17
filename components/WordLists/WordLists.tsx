@@ -25,7 +25,10 @@ const Lists = () => {
 
   return (
     <div>
-      <p>{auth!.currentUser!.uid}</p>
+      <p>
+        {auth!.currentUser!.uid}
+        asdfasdfa
+      </p>
     </div>
   );
 };

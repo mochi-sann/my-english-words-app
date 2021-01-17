@@ -1,6 +1,14 @@
 require("dotenv").config();
 const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
-module.exports = {
+
+const withPWA = require("next-pwa");
+
+module.exports = withPWA({
+  // other next config
+  pwa: {
+    dest: "public",
+  },
+
   env: {
     // Reference a variable that was defined in the .env file and make it available at Build Time
     TTTEEEEEEEEESSSSSSSSSSSTTTTTTTTT_ENV:
@@ -20,4 +28,4 @@ module.exports = {
     }
     return config;
   },
-};
+});

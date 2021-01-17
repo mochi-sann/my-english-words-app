@@ -162,3 +162,6 @@ note.md
 
 # Local History for Visual Studio Code
 .history/
+
+public/sw.js
+public/workbox-*.js
