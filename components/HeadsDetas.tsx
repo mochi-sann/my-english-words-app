@@ -62,7 +62,7 @@ const HeadsDeta = ({ children, title }: HeadsDetaPropsType) => {
       <link rel="icon" sizes="32x32" href="icons/favicon-32.png" />
       {/* For IE10 Metro */}
       <meta name="msapplication-TileColor" content="#FFFFFF" />
-      <meta name="msapplication-TileImage" content="icons/favicon-144.png" />
+      {/* <meta name="msapplication-TileImage" content="icons/favicon-144.png" /> */}
       <meta name="theme-color" content="#ffffff" />
       {/* Chrome for Android */}
       <link rel="manifest" href="icons/manifest.json" />
