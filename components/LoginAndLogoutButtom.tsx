@@ -96,6 +96,7 @@ const LoginPage = () => {
                 <Avatar
                   h="40px"
                   w="40px"
+                  mr="2"
                   // border="2px"
                   borderColor={Bordercolor}
                   className="border-2"

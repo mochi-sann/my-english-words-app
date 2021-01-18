@@ -1,5 +1,6 @@
 import React from "react";
 import "./button.css";
+import { Box, Button as ChakraButton } from "@chakra-ui/react";
 
 export interface ButtonProps {
   /**
@@ -38,15 +39,17 @@ export const Button: React.FC<ButtonProps> = ({
     ? "storybook-button--primary"
     : "storybook-button--secondary";
   return (
-    <button
+    <ChakraButton
       type="button"
       className={["storybook-button", `storybook-button--${size}`, mode].join(
         " "
       )}
       style={{ backgroundColor }}
       {...props}
+      w="30"
     >
+      <Box bg="#f00">ぼっくす</Box>
       {label}
-    </button>
+    </ChakraButton>
   );
 };
