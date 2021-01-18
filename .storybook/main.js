@@ -3,11 +3,13 @@ const path = require("path");
 const toPath = (_path) => path.join(process.cwd(), _path);
 
 module.exports = {
-  stories: ["../**/*.stories.tsx"],
+  stories: ["../stories/**/*.stories.tsx"],
   addons: [
     "storybook-addon-performance/register",
     "@storybook/addon-a11y",
     "@storybook/addon-toolbars",
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
   ],
   typescript: {
     reactDocgen: false,

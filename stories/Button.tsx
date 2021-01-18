@@ -1,6 +1,6 @@
 import React from "react";
 import "./button.css";
-import { Box, Button as ChakraButton } from "@chakra-ui/react";
+import { Button as ChakraButton } from "@chakra-ui/react";
 
 export interface ButtonProps {
   /**
@@ -22,6 +22,18 @@ export interface ButtonProps {
   /**
    * Optional click handler
    */
+  colorScheme?:
+    | "blue"
+    | "black"
+    | "gray"
+    | "red"
+    | "orange"
+    | "Yellow"
+    | "Green"
+    | "Teal"
+    | "Cyan"
+    | "Purple"
+    | "Pink";
   onClick?: () => void;
 }
 
@@ -32,23 +44,21 @@ export const Button: React.FC<ButtonProps> = ({
   primary = false,
   size = "medium",
   backgroundColor,
+  colorScheme = "gray",
   label,
   ...props
 }) => {
-  const mode = primary
-    ? "storybook-button--primary"
-    : "storybook-button--secondary";
   return (
     <ChakraButton
       type="button"
-      className={["storybook-button", `storybook-button--${size}`, mode].join(
-        " "
-      )}
+      // className={["storybook-button", `storybook-button--${size}`, mode].join(
+      //   " "
+      // )}
+      colorScheme={colorScheme}
       style={{ backgroundColor }}
       {...props}
       w="30"
     >
-      <Box bg="#f00">ぼっくす</Box>
       {label}
     </ChakraButton>
   );
