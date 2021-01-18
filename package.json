@@ -10,8 +10,8 @@
     "lint": "eslint . --fix --ext ts --ext tsx --ext js",
     "test": "jest",
     "server": "yarn build && yarn start",
-    "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "storybook": "start-storybook -s ./public -p 6006",
+    "storybook:build": "build-storybook"
   },
   "husky": {
     "hooks": {

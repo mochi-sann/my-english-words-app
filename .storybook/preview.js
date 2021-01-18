@@ -38,13 +38,14 @@ const ColorModeToggleBar = () => {
   const nextMode = useColorModeValue("dark", "light");
 
   return (
-    <Flex justify="flex-end" mb={4}>
+    <Flex justify="flex-end" position="sticky" top="0" left="0" mb={4}>
       <IconButton
         size="md"
         fontSize="lg"
         aria-label={`Switch to ${nextMode} mode`}
-        variant="ghost"
+        // variant="ghost"
         color="current"
+        colorScheme="gray"
         marginLeft="2"
         onClick={toggleColorMode}
         icon={<SwitchIcon />}
