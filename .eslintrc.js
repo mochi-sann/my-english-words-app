@@ -1,4 +1,9 @@
 module.exports = {
+  ignorePatterns: [
+    // Storybook の設定フォルダを追加する
+    "!.storybook",
+  ],
+
   env: {
     browser: true,
     es2021: true,
