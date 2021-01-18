@@ -32,6 +32,8 @@
     "pages/test/index.test.ts",
     "utils/firebase/nodeApp.js",
     "utils/firebase/clientApp.js",
-    "lib/firebase/db.ts"
+    "lib/firebase/db.ts",
+    "storybook/main.js",
+    "storybook/preview.js"
   ]
 }
