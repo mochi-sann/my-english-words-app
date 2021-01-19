@@ -19,7 +19,7 @@ import MyHeader from "~/components/Header/Header.tsx";
 
 import HeadsDeta from "~/components/HeadsDetas";
 
-type Props = {
+export type Props = {
   children?: ReactNode;
   title?: string;
 };

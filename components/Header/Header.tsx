@@ -12,9 +12,9 @@ import {
 } from "@chakra-ui/react";
 
 import NextLink from "next/link";
-import Image from "next/image";
+
 import LoginWithGoogle from "~/components/LoginAndLogoutButtom";
-import { FaSolidMoon, IcRoundWbSunny } from "~/components/svgs/icon";
+import { FaSolidMoon, IcRoundWbSunny, Siteicon } from "~/components/svgs/icon";
 
 function ChangeDarkModeAndLightMode() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -29,8 +29,10 @@ function ChangeDarkModeAndLightMode() {
     </>
   );
 }
-
-const Header = () => {
+export interface HeaderProps {
+  HeaderTitel: string;
+}
+const Header = ({ HeaderTitel = "仮タイトル" }: HeaderProps) => {
   const headerBg = useColorModeValue("#fff", "gray.900");
 
   return (
@@ -50,11 +52,12 @@ const Header = () => {
             <NextLink href="/">
               <Link href="/" h="40px">
                 <Flex>
-                  <Image
+                  <Siteicon width="40" height="40" className="rounded-lg" />
+                  {/* <Image
                     src="/icons/icon_512x512@2x.png"
                     width="40"
                     height="40"
-                  />
+                  /> */}
                   <Heading
                     ml="2"
                     fontSize="2xl"
@@ -63,7 +66,7 @@ const Header = () => {
                     display="flex"
                     alignItems="center"
                   >
-                    名無し
+                    {HeaderTitel}
                   </Heading>
                 </Flex>
               </Link>
