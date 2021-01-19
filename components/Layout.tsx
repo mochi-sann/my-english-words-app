@@ -46,7 +46,7 @@ const Layout = ({ children, title = "No title" }: Props) => {
               // ログインしてないときに表示するやつ
               // <NextLink href="/login">
               <>
-                <Box w="100vw" py="100px" background="blue.100">
+                <Box w="100%" py="100px" background="blue.100">
                   <Container maxWidth="900px" px="2">
                     <Center>
                       <Wrap>

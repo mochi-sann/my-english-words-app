@@ -5,7 +5,7 @@ import { Story, Meta } from "@storybook/react/types-6-0";
 import { LoginBtn } from "./../LoginAndLogoutButtom";
 
 export default {
-  title: "Example/LoginBtn",
+  title: "Example/LoginButton",
   component: LoginBtn,
   argTypes: {
     backgroundColor: { control: "color" },

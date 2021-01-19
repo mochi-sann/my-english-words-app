@@ -10,6 +10,8 @@ module.exports = {
     "@storybook/addon-toolbars",
     "@storybook/addon-links",
     "@storybook/addon-essentials",
+    "@storybook/addon-actions",
+    "@storybook/addon-controls",
   ],
   typescript: {
     check: false,
