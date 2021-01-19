@@ -8,11 +8,11 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-interface MainProps {
+export interface MainProps {
   title: string;
   href: string;
 }
-const Main = ({ title, href }: MainProps) => {
+const Main = ({ title = "タイトル", href = "/" }: MainProps) => {
   return (
     <NextLink href={href}>
       <a href={href}>

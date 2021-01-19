@@ -36,7 +36,7 @@ const Layout = ({ children, title = "No title" }: Props) => {
         {/* <link rel="shortcut icon" href="open-book.png" type="image/x-icon" /> */}
       </HeadsDeta>
 
-      <MyHeader />
+      <MyHeader HeaderTitel="名無し" />
       {/* ヘッダーここまで */}
       <>
         {/* ログインしてないときはログインするように促してくるやつ */}
@@ -83,7 +83,7 @@ const Layout = ({ children, title = "No title" }: Props) => {
       <Box
         bg={useColorModeValue("gray.200", "gray.700")}
         position="absolute"
-        w="100vw"
+        w="100%"
         bottom="0"
         zIndex="10"
       >

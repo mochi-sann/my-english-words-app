@@ -3,7 +3,7 @@ import React from "react";
 import NextLink from "next/link";
 import { Button } from "@chakra-ui/react";
 
-import Lists from "~/components/Enlish-Lists";
+import Lists from "@components/MainpageLIsts/EnlishLists";
 
 import { PhNotePencilBold } from "~/components/svgs/icon";
 import WordLists from "components/WordLists/WordLists";
