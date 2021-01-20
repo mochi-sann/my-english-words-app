@@ -9,19 +9,22 @@ import {
 import NextLink from "next/link";
 
 export interface ListssProps {
-  Listtitle?: string;
-  href?: string;
-}
-export interface HeaderProps {
-  HeaderTitel: string;
+  Listtitle: string;
+  Href: string;
+  widthParcent?: number;
 }
 
-const Listss = ({ Listtitle = "タイトル", href = "/" }: ListssProps) => {
+const Listss = ({
+  Listtitle = "タイトル",
+  Href = "/",
+  widthParcent = 100,
+}: ListssProps) => {
   return (
-    <NextLink href={href}>
-      <a href={href}>
+    <NextLink href={Href}>
+      <a href={Href}>
         <Box
-          w="100%"
+          argTypes={{ onClick: { action: "clicked" } }}
+          w={widthParcent + "%"}
           boxShadow="base"
           border="1px"
           my="4"
