@@ -8,11 +8,15 @@ import {
 } from "@chakra-ui/react";
 import NextLink from "next/link";
 
-export interface MainProps {
-  title: string;
-  href: string;
+export interface ListssProps {
+  Listtitle?: string;
+  href?: string;
 }
-const Main = ({ title = "タイトル", href = "/" }: MainProps) => {
+export interface HeaderProps {
+  HeaderTitel: string;
+}
+
+const Listss = ({ Listtitle = "タイトル", href = "/" }: ListssProps) => {
   return (
     <NextLink href={href}>
       <a href={href}>
@@ -32,7 +36,7 @@ const Main = ({ title = "タイトル", href = "/" }: MainProps) => {
           }}
         >
           <Heading as="h3" mb="2" fontSize="2xl">
-            {title}
+            {Listtitle}
           </Heading>
           <UnorderedList
             color={useColorModeValue("#444", "#ccc")}
@@ -49,4 +53,4 @@ const Main = ({ title = "タイトル", href = "/" }: MainProps) => {
   );
 };
 
-export default Main;
+export default Listss;

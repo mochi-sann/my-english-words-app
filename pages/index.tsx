@@ -1,4 +1,4 @@
-import Layout from "../components/Layout";
+import Layout from "../components/Layout/Layout";
 import React from "react";
 import NextLink from "next/link";
 import { Button } from "@chakra-ui/react";
@@ -24,12 +24,12 @@ const IndexPage = () => (
     </NextLink>
     <hr />
     <WordLists />
-    <Lists href="/make" title="タイトルとかを入れるところ" />
-    <Lists href="/make" title="タイトルとかを入れるところ" />
-    <Lists href="/make" title="タイトルとかを入れるところ" />
-    <Lists href="/make" title="タイトルとかを入れるところ" />
-    <Lists href="/make" title="タイトルとかを入れるところ" />
-    <Lists href="/make" title="タイトルとかを入れるところ" />
+    <Lists href="/make" Listtitle="タイトル" />
+    <Lists href="/make" Listtitle="タイトル" />
+    <Lists href="/make" Listtitle="タイトル" />
+    <Lists href="/make" Listtitle="タイトル" />
+    <Lists href="/make" Listtitle="タイトル" />
+    <Lists href="/make" Listtitle="タイトル" />
     {/* <h2>こんにちは</h2> */}
   </Layout>
 );

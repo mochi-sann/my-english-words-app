@@ -34,7 +34,7 @@ export const globalTypes = {
 
 const ColorModeToggleBar = () => {
   const { toggleColorMode } = useColorMode();
-  const SwitchIcon = useColorModeValue(FaMoon, FaSun);
+  const SwitchIcon = useColorModeValue(FaSun, FaMoon);
   const nextMode = useColorModeValue("dark", "light");
 
   return (

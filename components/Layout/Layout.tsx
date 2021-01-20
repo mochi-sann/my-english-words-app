@@ -11,23 +11,26 @@ import {
   Center,
 } from "@chakra-ui/react";
 
-import AuthContext from "~/lib/AuthContext";
-// import { analytics } from "~/lib/firebase";
-
 import { LoginBtn } from "~/components/LoginAndLogoutButtom";
-import MyHeader from "~/components/Header/Header.tsx";
+import MyHeader from "~/components/Header/Header";
 
 import HeadsDeta from "~/components/HeadsDetas";
-
+import { auth } from "~/lib/firebase";
 export type Props = {
   children?: ReactNode;
   title?: string;
+  IsUserLogin?: boolean;
 };
 
-const Layout = ({ children, title = "No title" }: Props) => {
+const Layout = ({
+  children,
+  title = "No title",
+  IsUserLogin = false,
+}: Props) => {
   // const headerBg = useColorModeValue("#fff", "gray.900");
   // analytics.logEvent("notification_received");
   // analytics.logEvent("open");
+  const user = auth!.currentUser;
 
   // const HeaderTextColor = useColorModeValue("#000", "#fff");
   return (
@@ -40,11 +43,15 @@ const Layout = ({ children, title = "No title" }: Props) => {
       {/* ヘッダーここまで */}
       <>
         {/* ログインしてないときはログインするように促してくるやつ */}
-        <AuthContext.Consumer>
-          {(user: any) =>
-            Object.keys(user).length === 0 ? (
-              // ログインしてないときに表示するやつ
-              // <NextLink href="/login">
+        {(() => {
+          if (user || IsUserLogin) {
+            return (
+              <>
+                <Container maxWidth="800px">{children}</Container>
+              </>
+            );
+          } else {
+            return (
               <>
                 <Box w="100%" py="100px" background="blue.100">
                   <Container maxWidth="900px" px="2">
@@ -68,15 +75,9 @@ const Layout = ({ children, title = "No title" }: Props) => {
                   </Text>
                 </Container>
               </>
-            ) : (
-              // </NextLink>
-              <>
-                <Container maxWidth="800px">{children}</Container>
-              </>
-            )
+            );
           }
-        </AuthContext.Consumer>
-        {/* メインの記事が入るところ */}
+        })()}
       </>
       {/* Footer */}
       <Box h="150px"></Box>
