@@ -16,4 +16,4 @@ jobs:
           node-version: 14.x
       - run: node -v
       - run: yarn install
-      - run: yarn run storybook:gh -ci true
+      - run: yarn run  deploy-storybook --branch dock --source-branch main  -ci true

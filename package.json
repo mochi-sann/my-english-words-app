@@ -13,7 +13,7 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "storybook:build": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "storybook:gh": "yarn deploy-storybook --branch dock --source-branch main --out docs"
+    "storybook:gh": " deploy-storybook --branch dock --source-branch main --out docs"
   },
   "husky": {
     "hooks": {
