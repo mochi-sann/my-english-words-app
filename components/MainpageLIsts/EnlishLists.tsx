@@ -10,7 +10,7 @@ import NextLink from "next/link";
 
 export interface ListssProps {
   Listtitle: string;
-  href: string;
+  href?: string;
   widthParcent?: number;
 }
 
@@ -23,7 +23,7 @@ const Listss = ({
     <NextLink href={href}>
       <a href={href}>
         <Box
-          argTypes={{ onClick: { action: "clicked" } }}
+          argtypes={{ onClick: { action: "clicked" } }}
           w={widthParcent + "%"}
           boxShadow="base"
           border="1px"

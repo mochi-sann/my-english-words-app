@@ -10,7 +10,7 @@ export default {
   argTypes: {
     Listtitle: { control: "text" },
     widthParcent: { control: "range", min: 1, max: 100, step: 10 },
-    backgroundColor: { control: "color" },
+    href: { control: "text" },
   },
 } as Meta;
 
@@ -20,4 +20,5 @@ export const Primary = Template.bind({});
 Primary.args = {
   Listtitle: "タイトル",
   widthParcent: 100,
+  href: "/",
 };

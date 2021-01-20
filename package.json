@@ -13,7 +13,7 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "storybook:build": "build-storybook",
     "deploy-storybook": "storybook-to-ghpages",
-    "storybook:gh": " deploy-storybook --branch dock --source-branch main --out docs"
+    "storybook:gh": " storybook-to-ghpages --branch dock --source-branch main --out docs"
   },
   "husky": {
     "hooks": {
@@ -74,7 +74,7 @@
     "@storybook/react": "^6.1.14",
     "@storybook/storybook-deployer": "^2.8.7",
     "@testing-library/jest-dom": "^5.11.6",
-    "@testing-library/react": "^11.2.2",
+    "@testing-library/react": "^11.2.3",
     "@types/enzyme-adapter-react-16": "^1.0.6",
     "@types/jest": "^26.0.16",
     "@types/node": "^12.12.21",
