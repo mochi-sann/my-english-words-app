@@ -18,4 +18,4 @@ jobs:
       - name: Install fast-cli
         run: yarn global add fast-cli
       - name: Run fase cli
-        run: fast -u
+        run: npx fast -u
