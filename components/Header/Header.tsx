@@ -13,7 +13,7 @@ import {
 
 import NextLink from "next/link";
 
-import LoginWithGoogle from "~/components/LoginAndLogoutButtom";
+import LoginWithGoogle from "@components/Login/LoginAndLogoutButtom";
 import { FaSolidMoon, IcRoundWbSunny, Siteicon } from "~/components/svgs/icon";
 
 function ChangeDarkModeAndLightMode() {

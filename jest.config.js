@@ -11,7 +11,7 @@ module.exports = {
   globals: {
     // test 時に TypeScript の設定を一部変更して実行する設定
     "ts-jest": {
-      tsConfig: {
+      tsconfig: {
         jsx: "react",
       },
     },

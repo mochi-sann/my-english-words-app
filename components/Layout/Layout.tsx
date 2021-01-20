@@ -11,7 +11,7 @@ import {
   Center,
 } from "@chakra-ui/react";
 
-import { LoginBtn } from "~/components/LoginAndLogoutButtom";
+import { LoginBtn } from "@components/Login/LoginAndLogoutButtom";
 import MyHeader from "~/components/Header/Header";
 
 import HeadsDeta from "~/components/HeadsDetas";
