@@ -14,11 +14,7 @@ export interface ListssProps {
   widthParcent?: number;
 }
 
-const Listss = ({
-  Listtitle = "タイトル",
-  href = "/",
-  widthParcent = 100,
-}: ListssProps) => {
+const Listss = ({ Listtitle, href = "/", widthParcent = 100 }: ListssProps) => {
   return (
     <NextLink href={href}>
       <a href={href}>

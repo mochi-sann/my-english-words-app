@@ -18,7 +18,7 @@ const Template: Story<ListssProps> = (args) => <Listss {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-  Listtitle: "タイトル",
+  // Listtitle: ,
   widthParcent: 100,
   href: "/",
 };
