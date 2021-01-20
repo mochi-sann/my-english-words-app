@@ -15,5 +15,5 @@ jobs:
         with:
           node-version: 14.x
       - run: node -v
-      # - run: npm install
-      # - run: npm run storybook:gh -ci
+      - run: yarn install
+      - run: yarn run storybook:gh -ci true
