@@ -15,7 +15,7 @@ const IndexPage = () => (
         leftIcon={<PhNotePencilBold className="w-8 h-8" />}
         size="lg"
         my="4"
-        colorScheme="blue"
+        colorScheme="blues"
         w="100%"
         href="/make"
       >

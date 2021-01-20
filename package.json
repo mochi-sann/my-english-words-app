@@ -11,7 +11,8 @@
     "test": "jest",
     "server": "yarn build && yarn start",
     "storybook": "start-storybook -s ./public -p 6006",
-    "storybook:build": "build-storybook"
+    "storybook:build": "build-storybook",
+    "deploy-storybook": "storybook-to-ghpages"
   },
   "husky": {
     "hooks": {
@@ -70,6 +71,7 @@
     "@storybook/addon-essentials": "^6.1.14",
     "@storybook/addon-links": "^6.1.14",
     "@storybook/react": "^6.1.14",
+    "@storybook/storybook-deployer": "^2.8.7",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@types/enzyme-adapter-react-16": "^1.0.6",
