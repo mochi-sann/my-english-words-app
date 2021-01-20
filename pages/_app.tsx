@@ -46,6 +46,9 @@ const colors = {
     700: "#2a69ac",
   },
 };
+export function reportWebVitals(metric: any) {
+  console.log(metric);
+}
 
 const theme = extendTheme({ colors, components, styles });
 

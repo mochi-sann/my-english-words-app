@@ -46,7 +46,7 @@ const ListBox = () => {
   );
 };
 
-const Lists = () => {
+const Lists = ({ stars }: any) => {
   // console.log();
 
   // const alllists = listsRef
@@ -68,11 +68,35 @@ const Lists = () => {
   return (
     <div>
       <p>
-        {auth!.currentUser!.uid}
-        asdfasdfa
+        {stars}
+        {/* {alllists} */}
         <ListBox />
       </p>
     </div>
   );
+};
+Lists.getInitialProps = async () => {
+  const res = await fetch("https://api.github.com/repos/vercel/next.js");
+
+  const user = auth!.currentUser;
+  const listsRef = db.collection("lists").doc(user!.uid).collection(user!.uid);
+
+  const alllists = listsRef
+    .get()
+    .then((snapshot: any) => {
+      console.log(
+        `${snapshot}`
+        // "font-weight: bold; font-size: 30px; background: #999;"
+      );
+
+      snapshot.forEach((doc: any) => {
+        console.log(doc.id, "=>", doc.data());
+      });
+    })
+    .catch((err: any) => {
+      console.log("Error getting documents", err);
+    });
+  const json = await res.json();
+  return { stars: json.stargazers_count, alllists };
 };
 export default Lists;

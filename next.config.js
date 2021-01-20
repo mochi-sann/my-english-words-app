@@ -5,6 +5,17 @@ const withPWA = require("next-pwa");
 
 module.exports = withPWA({
   // other next config
+  trailingSlash: true,
+
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId }
+  ) {
+    return {
+      "/": { page: "/" },
+      "/make": { page: "/make" },
+    };
+  },
   pwa: {
     dest: "public",
   },
