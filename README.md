@@ -1,4 +1,5 @@
 ![CI](https://github.com/mochi-sann/my-english-words-app/workflows/CI/badge.svg)
+
 # Next.js template
 
 This is Next.js tailwindcss Typescript Jest ESLint Prettier and Docker template

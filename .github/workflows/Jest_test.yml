@@ -2,8 +2,9 @@ name: CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [$default-branch]
+  pull_request:
+    branches: [$default-branch]
 
 jobs:
   Test:
@@ -16,6 +17,6 @@ jobs:
         with:
           node-version: "15.x"
       - name: Install Dependencies
-        run: yarn install
+        run: yarn install --frozen-lockfile
       - name: Run test
         run: yarn test
