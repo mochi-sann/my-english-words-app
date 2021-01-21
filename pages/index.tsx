@@ -3,7 +3,7 @@ import React from "react";
 import NextLink from "next/link";
 import { Button } from "@chakra-ui/react";
 
-import Lists from "@components/MainpageLIsts/EnlishLists";
+import Lists from "~/components/MainpageLIsts/EnlishLists";
 
 import { PhNotePencilBold } from "~/components/svgs/icon";
 import WordLists from "components/WordLists/WordLists";
@@ -15,7 +15,7 @@ const IndexPage = () => (
         leftIcon={<PhNotePencilBold className="w-8 h-8" />}
         size="lg"
         my="4"
-        colorScheme="blues"
+        colorScheme="blue"
         w="100%"
         href="/make"
       >

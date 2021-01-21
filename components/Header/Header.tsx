@@ -13,7 +13,7 @@ import {
 
 import NextLink from "next/link";
 
-import LoginWithGoogle from "@components/Login/LoginAndLogoutButtom";
+import LoginWithGoogle from "~/components/Login/LoginAndLogoutButtom";
 import { FaSolidMoon, IcRoundWbSunny, Siteicon } from "~/components/svgs/icon";
 
 function ChangeDarkModeAndLightMode() {
@@ -60,6 +60,7 @@ const Header = ({ HeaderTitel = "仮タイトル" }: HeaderProps) => {
                   /> */}
                   <Heading
                     ml="2"
+                    as="h1"
                     fontSize="2xl"
                     textAlign={["center", "center"]}
                     color={useColorModeValue("#000", "#fff")}

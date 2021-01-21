@@ -15,9 +15,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "paths": {
-      "@components/*": ["components/*"],
-      "@pages/*": ["pages/*"],
-      "@hooks/*": ["hooks/*"],
       "~/*": ["hooks/../*"]
     },
     "resolveJsonModule": true,

@@ -3,7 +3,7 @@ import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { Test } from "~/components/MainpageLIsts/EnlishLists.stories";
-describe("add", (): void => {
+describe("Listのタイトルがちゃんと入る", (): void => {
   it("タイトルです", () => {
     render(<Test Listtitle="タイトルです" {...Test.args} />);
     expect(screen.getByRole("heading")).toHaveTextContent("タイトルです");
