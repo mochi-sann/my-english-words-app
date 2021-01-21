@@ -18,5 +18,7 @@ jobs:
           node-version: "15.x"
       - name: 📩 Install Dependencies
         run: yarn install --frozen-lockfile
+      - name: ⌛️ type check
+        run: yarn type-check
       - name: ⌛️ Run test
         run: yarn test
