@@ -24,10 +24,21 @@ const config = {
 // firebase.analytics();
 // export const analytics = firebase.analytics();
 export const auth = firebase.auth();
+//  loginGoogleProps
 
-export const login = () => {
+export const loginGoogle = (type: "google" | "github") => {
   // googleでログイン
-  const provider = new firebase.auth.GoogleAuthProvider();
+  let provider: any = "";
+  switch (type) {
+    case "google":
+      provider = new firebase.auth.GoogleAuthProvider();
+      break;
+    case "github":
+      provider = new firebase.auth.GithubAuthProvider();
+      break;
+    default:
+      break;
+  }
   // provider.addScope("https://www.googleapis.com/auth/contacts.readonly");
   firebase
     .auth()
@@ -56,6 +67,7 @@ export const login = () => {
       // ...
     });
 };
+
 // Login状態の検知
 export const listenAuthState = (dispatch: any) => {
   return firebase.auth().onAuthStateChanged(function (user) {

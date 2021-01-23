@@ -19,7 +19,7 @@ import {
   MenuGroup,
 } from "@chakra-ui/react";
 
-import { login, logout } from "~/lib/firebase";
+import { loginGoogle, logout } from "~/lib/firebase";
 
 import AuthContext from "~/lib/AuthContext";
 
@@ -52,9 +52,11 @@ export const LoginDrawer = ({ isOpen, onClose, finalFocusRef }: any) => {
               <Button
                 w="100%"
                 leftIcon={<LogosGoogleIcon className="w-5 h-5" />}
-                onClick={login}
+                onClick={() => {
+                  loginGoogle("google");
+                }}
               >
-                <Text ml="3">Google でログイン</Text>
+                <Text ml="3">Googleでログイン</Text>
               </Button>
             </DrawerBody>
           </DrawerContent>
@@ -96,7 +98,6 @@ const LoginPage = () => {
                 <Avatar
                   h="40px"
                   w="40px"
-                  mr="2"
                   // border="2px"
                   borderColor={Bordercolor}
                   className="border-2"

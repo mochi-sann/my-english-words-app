@@ -76,7 +76,7 @@ const Header = ({ HeaderTitel = "仮タイトル" }: HeaderProps) => {
 
           <Spacer />
 
-          <Box className="pr-2">
+          <Box>
             <LoginWithGoogle />
           </Box>
           <Box ml="2">
