@@ -16,5 +16,7 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: ⌛️ type check
         run: yarn type-check
+      - name: ⌛️ lint filese
+        run: yarn lint
       - name: ⌛️ Run test
         run: yarn test
