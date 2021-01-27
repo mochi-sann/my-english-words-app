@@ -6,7 +6,7 @@ const ListBox = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-
+  let debug: any;
   // console.log("%cDBを取得する", "font-weight: bold; font-size: 30px");
   const user = auth!.currentUser;
   const listsRef = db.collection("lists").doc(user!.uid).collection(user!.uid);
@@ -16,7 +16,8 @@ const ListBox = () => {
     .then((snapshot) => {
       setIsLoaded(true);
       setItems(snapshot);
-      // console.log(items);
+      debug = snapshot;
+      // console.log(snapshot);
 
       snapshot.forEach((doc) => {
         // console.log(doc.id, "=>", doc.data());
@@ -66,6 +67,7 @@ const ListBox = () => {
   } else {
     return (
       <ul>
+        {/* <Text>{items}</Text> */}
         {/* {items.map((item) => (
           <li key={item.id}>
             {item.name} {item.price}
