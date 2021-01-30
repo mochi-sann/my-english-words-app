@@ -6,7 +6,7 @@ import { Button } from "@chakra-ui/react";
 import Lists from "~/components/MainpageLIsts/EnlishLists";
 
 import { PhNotePencilBold } from "~/components/svgs/icon";
-import WordLists from "components/WordLists/WordLists";
+import WordLists from "~/components/WordLists/WordLists.tsx";
 
 const IndexPage = () => (
   <Layout title="Home">
