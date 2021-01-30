@@ -69,9 +69,8 @@ function ListBox() {
         )}
       </Box>
 
-      <Box className="bg-gray-200 p-2 rounded-lg" as="pre">
-        {/* デバック用 */}
-        {/* {JSON.stringify(value.docs, null, 2)} */}
+      {/* デバック用 */}
+      {/* <Box className="bg-gray-200 p-2 rounded-lg" as="pre">
         {value && (
           <span>
             Collection:{" "}
@@ -82,7 +81,7 @@ function ListBox() {
             ))}
           </span>
         )}
-      </Box>
+      </Box> */}
     </div>
   );
 }

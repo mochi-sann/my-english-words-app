@@ -90,7 +90,7 @@ const Layout = ({
       >
         <Container maxWidth="800px" className="py-8">
           <Text className="text-center ">
-            <Link href="https://github.com/Mochichi2003">Mochi</Link>
+            <Link href="https://github.com/mochi-sann">Mochi</Link>
             が作りました
           </Text>
         </Container>

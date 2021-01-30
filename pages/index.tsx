@@ -3,8 +3,6 @@ import React from "react";
 import NextLink from "next/link";
 import { Button } from "@chakra-ui/react";
 
-import Lists from "~/components/MainpageLIsts/EnlishLists";
-
 import { PhNotePencilBold } from "~/components/svgs/icon";
 import WordLists from "~/components/WordLists/WordLists.tsx";
 
@@ -22,14 +20,14 @@ const IndexPage = () => (
         問題集を作る
       </Button>
     </NextLink>
-    <hr />
+    {/* <hr /> */}
     <WordLists />
+    {/* <Lists href="/make" Listtitle="タイトル" />
     <Lists href="/make" Listtitle="タイトル" />
     <Lists href="/make" Listtitle="タイトル" />
     <Lists href="/make" Listtitle="タイトル" />
     <Lists href="/make" Listtitle="タイトル" />
-    <Lists href="/make" Listtitle="タイトル" />
-    <Lists href="/make" Listtitle="タイトル" />
+    <Lists href="/make" Listtitle="タイトル" /> */}
     {/* <h2>こんにちは</h2> */}
   </Layout>
 );
