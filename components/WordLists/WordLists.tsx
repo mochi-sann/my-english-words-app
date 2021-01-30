@@ -3,7 +3,6 @@ import {
   Heading,
   useColorModeValue,
   HStack,
-  Stack,
   Link,
   Text,
 } from "@chakra-ui/react";
