@@ -76,7 +76,7 @@ const HeadsDeta = ({ children, title }: HeadsDetaPropsType) => {
         name="twitter:image"
         content="https://yourdomain.com/static/icons/android-chrome-192x192.png"
       />
-      <meta name="twitter:creator" content="@DavidWShadow" />
+      <meta name="twitter:creator" content="@mochi-sann" />
       <meta property="og:type" content="website" />
       <meta property="og:title" content="PWA App" />
       <meta property="og:description" content="Best PWA App in the world" />

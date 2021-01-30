@@ -1,5 +1,4 @@
-FROM node:14.15.2-slim
-
+FROM node:14.15-alpine
 
 WORKDIR /root/app
 

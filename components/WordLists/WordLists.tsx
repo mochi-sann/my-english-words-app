@@ -1,4 +1,4 @@
-import { Text } from "@chakra-ui/react";
+import { Text, Box } from "@chakra-ui/react";
 import { useState, useEffect } from "react";
 import { db, auth } from "~/lib/firebase";
 
@@ -7,26 +7,34 @@ const ListBox = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   let debug: any;
+
   // console.log("%cDBを取得する", "font-weight: bold; font-size: 30px");
   const user = auth!.currentUser;
   const listsRef = db.collection("lists").doc(user!.uid).collection(user!.uid);
 
   const allCities = listsRef
+    .where("capital", "==", true)
     .get()
-    .then((snapshot) => {
-      setIsLoaded(true);
-      setItems(snapshot);
-      debug = snapshot;
-      // console.log(snapshot);
+    .then((snapshot: any) => {
+      // setItems(snapshot);
+      // console.log(items);
 
-      snapshot.forEach((doc) => {
-        // console.log(doc.id, "=>", doc.data());
+      if (snapshot.empty) {
+        console.log(
+          "%cNo matching documents.",
+          "font-weight: bold; font-size: 30px"
+        );
+        // return;
+      }
+      snapshot.forEach((doc: any) => {
+        // setItems((items) => [...items, { id: doc.id, value: doc.data() }]);
+        console.log(doc.id, "=>", doc.data());
       });
+      setIsLoaded(true);
     })
     .catch((err) => {
-      console.log("Error getting documents", err);
-      setIsLoaded(true);
       setError(err);
+      console.log("Error getting documents", err);
     });
 
   // const getDoc = listsRef
@@ -67,11 +75,11 @@ const ListBox = () => {
   } else {
     return (
       <ul>
-        {/* <Text>{items}</Text> */}
-        {/* {items.map((item) => (
-          <li key={item.id}>
-            {item.name} {item.price}
-          </li>
+        <Box className="bg-gray-200 p-2 rounded-lg" as="pre">
+          {JSON.stringify(items, null, 2)}
+        </Box>
+        {/* {items.map((item: any) => (
+          <li key={item.id}>{item.title}</li>
         ))} */}
       </ul>
     );
