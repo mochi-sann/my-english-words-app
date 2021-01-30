@@ -1,6 +1,6 @@
-import { Text, Box } from "@chakra-ui/react";
-import { useState, useEffect } from "react";
-import { db, auth } from "~/lib/firebase";
+import { Box } from "@chakra-ui/react";
+import { useEffect } from "react";
+// import { db, auth } from "~/lib/firebase";
 
 // const ListBox = async () => {
 //   const [error, setError] = useState(null);
@@ -95,38 +95,42 @@ import { db, auth } from "~/lib/firebase";
 //   );
 // };
 function ListBox() {
-  const user = auth!.currentUser;
-  const listsRef = db.collection("lists").doc(user!.uid).collection(user!.uid);
+  // const user = auth!.currentUser;
+  // const listsRef = db.collection("lists").doc(user!.uid).collection(user!.uid);
   // const sample = async () => {
   //   const snapshot = await listsRef.get();
   //   return snapshot;
   // };
   // async function sample() {}
-  const [items, setItems] = useState([]);
-  const deta = [];
-  async function test() {
-    const snapshot = await listsRef.get().then(() => {});
-    if (snapshot.empty) {
-      console.log("No matching documents.");
-      return;
-    }
-    // console.log(snapshot.docs);
+  // const [items, setItems] = useState([]);
+  // const deta = [];
+  // async function test() {
+  // const snapshot = listsRef.get().then(function (doc) {
+  // document.getElementById("user.name").innerHTML = doc.data().name;
+  // console.log(doc);
+  // setItems(doc);
+  // });
+  //   if (snapshot.empty) {
+  //     console.log("No matching documents.");
+  //     return;
+  //   }
+  //   // console.log(snapshot.docs);
 
-    snapshot.forEach((doc) => {
-      // setItems((prevItems) => [
-      //   ...prevItems,
-      //   {
-      //     id: prevItems.length,
-      //     value: doc.data(),
-      //   },
-      // ]);
-      console.log(doc.id, "=>", doc.data());
-      deta.push(doc.data());
-    });
-    // setItems(deta);
-    // setItems(deta);
-  }
-  test();
+  //   snapshot.forEach((doc) => {
+  //     // setItems((prevItems) => [
+  //     //   ...prevItems,
+  //     //   {
+  //     //     id: prevItems.length,
+  //     //     value: doc.data(),
+  //     //   },
+  //     // ]);
+  //     console.log(doc.id, "=>", doc.data());
+  //     deta.push(doc.data());
+  //   });
+  //   // setItems(deta);
+  //   // setItems(deta);
+  // }
+  // test();
   useEffect(() => {
     console.log(
       "更新されましたああああああああああああああああああああああああああああああああ"
@@ -135,7 +139,7 @@ function ListBox() {
   return (
     <div>
       <Box className="bg-gray-200 p-2 rounded-lg" as="pre">
-        {JSON.stringify(items, null, 2)}
+        {/* {JSON.stringify(items, null, 2)} */}
       </Box>
       <p>テキストテキスト</p>
     </div>

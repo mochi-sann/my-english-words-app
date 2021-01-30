@@ -37,6 +37,7 @@
     "@chakra-ui/react": "^1.1.5",
     "@emotion/react": "^11.1.4",
     "@emotion/styled": "^11.0.0",
+    "@nandorojo/swr-firestore": "^0.16.0",
     "@tailwindcss/postcss7-compat": "^2.0.2",
     "autoprefixer": "^9",
     "awesome-typescript-loader": "^5.2.1",

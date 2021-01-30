@@ -2,10 +2,13 @@ import "../styles/global.css";
 import type { AppProps /*, AppContext */ } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
+import { Fuego, FuegoProvider } from "@nandorojo/swr-firestore";
 import AuthContext from "~/lib/AuthContext";
 import authReducer from "~/lib/authReducer.ts";
 import React, { useReducer, useEffect } from "react";
-import { listenAuthState } from "~/lib/firebase";
+import { listenAuthState, config as FirebaseCongig } from "~/lib/firebase";
+
+const fuego = new Fuego(FirebaseCongig);
 
 const styles = {
   global: (props: AppProps) => ({
@@ -63,7 +66,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <AuthContext.Provider value={state}>
-        <Component {...pageProps} />
+        <FuegoProvider fuego={fuego}>
+          <Component {...pageProps} />
+        </FuegoProvider>
       </AuthContext.Provider>
     </ChakraProvider>
   );

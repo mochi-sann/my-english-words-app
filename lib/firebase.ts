@@ -9,7 +9,7 @@ import "firebase/firestore";
 
 // import admin from "firebase-admin";
 
-const config = {
+export const config = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
   databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
