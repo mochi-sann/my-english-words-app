@@ -69,6 +69,8 @@ const MyForm = () => {
         .collection(user!.uid) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
         .doc(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title)
         .set({
+          docName: dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title,
+          userUid: user!.uid,
           capital: true,
           values,
         });
