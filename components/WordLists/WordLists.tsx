@@ -34,8 +34,8 @@ function ListBox() {
             <Heading>今まで作った単語集</Heading>
             {value.docs.map((doc: any) => (
               <React.Fragment key={doc.id}>
-                <NextLink href={"/examination/" + doc.data().docName}>
-                  <Link href={"/examination/" + doc.data().docName}>
+                <NextLink href={"/examination/" + doc.id}>
+                  <Link href={"/examination/" + doc.id}>
                     <Box
                       argtypes={{ onClick: { action: "clicked" } }}
                       // w={widthParcent + "%"}
