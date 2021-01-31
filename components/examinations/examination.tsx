@@ -73,9 +73,9 @@ const Post = ({ docName }: Props) => {
               setCheckAnswer(true);
             }
           }}
-          onChange={(e) => {
-            setCheckAnswer(true);
-          }}
+          // onChange={(e) => {
+          //   setCheckAnswer(true);
+          // }}
           my="2"
         >
           答えを
