@@ -31,7 +31,7 @@ import {
 } from "~/components/makeForms/japaneseAndEnglish";
 
 import { IcomoonFreeCross } from "~/components/svgs/icon";
-import { db, auth } from "~/lib/firebase";
+import { auth } from "~/lib/firebase";
 
 // import { type } from "os";
 
@@ -56,6 +56,8 @@ const makePage = () => {
 const MyForm = () => {
   const toast = useToast();
   const router = useRouter();
+  const url = location.href;
+  const hosturl = url.replace(/make\//g, "");
 
   const onSubmit = async (values: any) => {
     const user = auth!.currentUser;
@@ -63,19 +65,56 @@ const MyForm = () => {
     // window.alert(JSON.stringify(values, null, "\t"));
     // Firebaseに送信するところ
     try {
-      await db
-        .collection("lists")
-        .doc(user!.uid) // userのuidごとに別れて格納されるようにする
-        .collection(user!.uid) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
-        .doc(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title)
-        .set({
-          docName: dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title,
-          userUid: user!.uid,
-          capital: true,
-          create_at: dayjs().format("YYYY/MM/DD HH:mm"),
-          update_at: dayjs().format("YYYY/MM/DD HH:mm"),
-          values,
+      const postDeta = {
+        docName: dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title,
+        userUid: user!.uid,
+        capital: true,
+        create_at: dayjs().format("YYYY/MM/DD HH:mm"),
+        update_at: dayjs().format("YYYY/MM/DD HH:mm"),
+        values: values,
+      };
+      // const response =
+      await fetch(hosturl + "api/pushDeta", {
+        method: "POST", // *GET, POST, PUT, DELETE, etc.
+        // mode: "cors", // no-cors, *cors, same-origin
+        // cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
+        // credentials: "same-origin", // include, *same-origin, omit
+        headers: {
+          "Content-Type": "application/json",
+          // 'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        redirect: "follow", // manual, *follow, error
+        referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+        body: JSON.stringify(postDeta), // 本文のデータ型は "Content-Type" ヘッダーと一致する必要があります
+      })
+        .then((response) => {
+          console.log(response.json());
+
+          // response.json();
+        })
+        .then((data) => {
+          console.log("Success:", data);
         });
+
+      // return response.json(); // レスポンスの JSON を解析
+
+      // await db
+      //   .collection("lists")
+      //   .doc(user!.uid) // userのuidごとに別れて格納されるようにする
+      //   .collection(user!.uid) // https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Date/setTime
+      //   .doc(dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title)
+      //   .set({
+      //     docName: dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title,
+      //     userUid: user!.uid,
+      //     capital: true,
+      //     create_at: dayjs().format("YYYY/MM/DD HH:mm"),
+      //     update_at: dayjs().format("YYYY/MM/DD HH:mm"),
+      //     values,
+      //   });
+      // postData();
+      // console.log(response);
+
+      // response.json();
       // analytics.logEvent("Create Forms");
       toast({
         description: "送信できました!",
@@ -112,6 +151,7 @@ const MyForm = () => {
 
   // const { input, meta } = useField("InputCounts");
   // document!.getElementById("addButton")!.click()!;
+
   return (
     <Form
       onSubmit={onSubmit}
@@ -136,6 +176,7 @@ const MyForm = () => {
           <FromInputs number={4} /> */}
           {/* {push("collection", undefined)} */}
           <Box>
+            {hosturl}
             <Box w="100%">
               <FormLabel>タイトル</FormLabel>
               <WordBordNameInput name="title" />
