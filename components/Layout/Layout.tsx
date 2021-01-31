@@ -22,11 +22,7 @@ export type Props = {
   IsUserLogin?: boolean;
 };
 
-const Layout = ({
-  children,
-  title = "No title",
-  IsUserLogin = false,
-}: Props) => {
+const Layout = ({ children, title, IsUserLogin = false }: Props) => {
   // const headerBg = useColorModeValue("#fff", "gray.900");
   // analytics.logEvent("notification_received");
   // analytics.logEvent("open");
@@ -39,7 +35,7 @@ const Layout = ({
         {/* <link rel="shortcut icon" href="open-book.png" type="image/x-icon" /> */}
       </HeadsDeta>
 
-      <MyHeader HeaderTitel="名無し" />
+      <MyHeader HeaderTitel="暗記App" />
       {/* ヘッダーここまで */}
       <>
         {/* ログインしてないときはログインするように促してくるやつ */}

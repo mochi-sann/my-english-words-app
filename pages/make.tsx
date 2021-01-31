@@ -72,8 +72,8 @@ const MyForm = () => {
           docName: dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title,
           userUid: user!.uid,
           capital: true,
-          // create_at: dayjs().format(),
-          // update_at: dayjs().format(),
+          create_at: dayjs().format("YYYY/MM/DD HH:mm"),
+          update_at: dayjs().format("YYYY/MM/DD HH:mm"),
           values,
         });
       // analytics.logEvent("Create Forms");
@@ -111,7 +111,7 @@ const MyForm = () => {
   });
 
   // const { input, meta } = useField("InputCounts");
-
+  // document!.getElementById("addButton")!.click()!;
   return (
     <Form
       onSubmit={onSubmit}
@@ -124,9 +124,9 @@ const MyForm = () => {
         form: {
           mutators: { push, pop },
         }, // injected from final-form-arrays above
-        pristine,
-        form,
-        submitting,
+        // pristine,
+        // form,
+        // submitting,
         values,
       }) => (
         <form onSubmit={handleSubmit}>
@@ -134,7 +134,7 @@ const MyForm = () => {
           <FromInputs number={2} />
           <FromInputs number={3} />
           <FromInputs number={4} /> */}
-
+          {/* {push("collection", undefined)} */}
           <Box>
             <Box w="100%">
               <FormLabel>タイトル</FormLabel>
@@ -188,9 +188,19 @@ const MyForm = () => {
               >
                 行を追加
               </Button>
+              {/* {(() => {
+                push("collection", undefined);
+              })()} */}
+
               <Button
                 // type="button"
                 // m={2}
+                id="addButton"
+                onLoad={() => {
+                  for (let i = 0; i < 10; i++) {
+                    push("collection", undefined);
+                  }
+                }}
                 onClick={() => {
                   for (let i = 0; i < 10; i++) {
                     push("collection", undefined);
@@ -211,7 +221,7 @@ const MyForm = () => {
               m={2}
               ml={0}
               type="submit"
-              disabled={pristine}
+              disabled={!values.title || false || !values.collection || false}
               // disabled={submitting || pristine}
             >
               送信する
@@ -225,7 +235,7 @@ const MyForm = () => {
               リセット
             </Button> */}
           </div>
-          <div>
+          {/* <div>
             <Box className="bg-gray-200 p-2 rounded-lg" as="pre">
               {JSON.stringify(values, null, 2)}
             </Box>
@@ -238,7 +248,7 @@ const MyForm = () => {
             <Box className="bg-gray-200 p-2 rounded-lg my-2" as="pre">
               {JSON.stringify(submitting, null, 2)}
             </Box>
-          </div>
+          </div> */}
         </form>
       )}
     />

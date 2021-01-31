@@ -61,6 +61,7 @@ function ListBox() {
                       >
                         {doc.data().values.title}
                       </Heading>
+                      <Text>{doc.data().create_at}</Text>
                       {/* {doc.data().} */}
                       <Box>
                         <EnglishWordSimplelist ListDeta={doc.data().values} />

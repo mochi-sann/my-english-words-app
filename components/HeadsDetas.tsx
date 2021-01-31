@@ -8,7 +8,7 @@ type HeadsDetaPropsType = {
 const HeadsDeta = ({ children, title }: HeadsDetaPropsType) => {
   return (
     <Head>
-      <title>{title} | 英単語アプリ</title>
+      <title>{title} | 暗記App</title>
       <meta charSet="utf-8" />
 
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
@@ -70,17 +70,17 @@ const HeadsDeta = ({ children, title }: HeadsDetaPropsType) => {
 
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:url" content="https://yourdomain.com" />
-      <meta name="twitter:title" content="PWA App" />
-      <meta name="twitter:description" content="Best PWA App in the world" />
+      <meta name="twitter:title" content="暗記App" />
+      {/* <meta name="twitter:description" content="Best PWA App in the world" /> */}
       <meta
         name="twitter:image"
         content="https://yourdomain.com/static/icons/android-chrome-192x192.png"
       />
       <meta name="twitter:creator" content="@mochi-sann" />
       <meta property="og:type" content="website" />
-      <meta property="og:title" content="PWA App" />
-      <meta property="og:description" content="Best PWA App in the world" />
-      <meta property="og:site_name" content="PWA App" />
+      <meta property="og:title" content="暗記App" />
+      {/* <meta property="og:description" content="Best PWA App in the world" /> */}
+      <meta property="og:site_name" content="暗記App" />
       <meta property="og:url" content="https://yourdomain.com" />
       <meta
         property="og:image"
