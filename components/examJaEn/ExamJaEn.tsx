@@ -29,7 +29,7 @@ const Header = ({
 
   return (
     <Box>
-      {Englishwoed}
+      {/* {Englishwoed} */}
       <HStack w="100%">
         <Text w="50%">{japanese}</Text>
         <Input

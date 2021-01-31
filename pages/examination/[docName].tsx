@@ -1,18 +1,19 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useState } from "react";
 
 import { useDocument } from "react-firebase-hooks/firestore";
-import { Box, Text, HStack, Input, Divider, Heading } from "@chakra-ui/react";
+import { Box, Text, HStack, Divider, Heading } from "@chakra-ui/react";
 
 import Layout from "~/components/Layout/Layout";
 import LoadingBox from "~/components/LoadingPeage/LoadingPeage";
+import ExamJaEn from "~/components/examJaEn/ExamJaEn";
 import { db, auth } from "~/lib/firebase";
 
 const Post = () => {
   const router = useRouter();
   const { docName } = router.query;
   const user = auth!.currentUser;
-
+  const [CheckAnswer /* setCheckAnswer */] = useState(false);
   if (user) {
     const [value, loading, error] = useDocument(
       db.doc("lists/" + user!.uid + "/" + user!.uid + "/" + docName),
@@ -47,10 +48,15 @@ const Post = () => {
                     {JSON.stringify(doc, null, 2)}
                   </Box> */}
                   <Divider my="2" />
-                  <HStack w="100%">
+                  {/* <HStack w="100%">
                     <Text w="50%">{doc.japanese}</Text>
                     <Input w="50%" />
-                  </HStack>
+                  </HStack> */}
+                  <ExamJaEn
+                    English={doc.english}
+                    japanese={doc.japanese}
+                    ShowAnswer={CheckAnswer}
+                  />
                 </React.Fragment>
               ))}
             </Box>

@@ -21,5 +21,13 @@ ShowAnswer.args = {
   ShowAnswer: true,
 };
 
+export const WrongAnswer = Template.bind({});
+WrongAnswer.args = {
+  japanese: "英語",
+  English: "English",
+  EnglishInputDefaultWord: "japanese",
+  ShowAnswer: true,
+};
+
 // export const Main = Template.bind({});
 // M.args = {};
