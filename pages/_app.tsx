@@ -3,6 +3,7 @@ import type { AppProps /*, AppContext */ } from "next/app";
 import { ChakraProvider, extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 import React, { useReducer, useEffect } from "react";
+import Head from "next/head";
 
 import AuthContext from "~/lib/AuthContext";
 import authReducer from "~/lib/authReducer.ts";
@@ -64,6 +65,14 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ChakraProvider theme={theme}>
       <AuthContext.Provider value={state}>
+        <Head>
+          <link
+            rel="icon"
+            type="image/x-icon"
+            sizes="16x16 32x32"
+            href="/favicon.ico"
+          />
+        </Head>
         <Component {...pageProps} />
       </AuthContext.Provider>
     </ChakraProvider>

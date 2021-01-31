@@ -14,12 +14,7 @@ const HeadsDeta = ({ children, title }: HeadsDetaPropsType) => {
       <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
       {/* For new browsers - multisize ico  */}
-      <link
-        rel="icon"
-        type="image/x-icon"
-        sizes="16x16 32x32"
-        href="favicon.ico"
-      />
+
       {/* For iPad with high-resolution Retina display running iOS ≥ 7: */}
       <link
         rel="apple-touch-icon"

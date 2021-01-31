@@ -25,7 +25,7 @@ const Post = ({ docName }: Props) => {
     );
 
     return (
-      <Layout>
+      <Layout title={docName}>
         {/* <p>{user!.uid!}</p> */}
         {/* <p>Post: {JSON.stringify(docName)}</p> */}
         <Heading mt="4" mb="6">
