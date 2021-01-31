@@ -9,6 +9,7 @@ import {
   Heading,
   useColorModeValue,
   Container,
+  Tooltip,
 } from "@chakra-ui/react";
 
 import NextLink from "next/link";
@@ -20,12 +21,14 @@ function ChangeDarkModeAndLightMode() {
   const { colorMode, toggleColorMode } = useColorMode();
   return (
     <>
-      <IconButton
-        aria-label="dark mode Light mode change Button"
-        onClick={toggleColorMode}
-      >
-        {colorMode === "light" ? <IcRoundWbSunny /> : <FaSolidMoon />}
-      </IconButton>
+      <Tooltip hasArrow label="カラーモードを切り替える">
+        <IconButton
+          aria-label="dark mode Light mode change Button"
+          onClick={toggleColorMode}
+        >
+          {colorMode === "light" ? <IcRoundWbSunny /> : <FaSolidMoon />}
+        </IconButton>
+      </Tooltip>
     </>
   );
 }

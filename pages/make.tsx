@@ -72,6 +72,8 @@ const MyForm = () => {
           docName: dayjs().format("YYYY-MM-DD-HH-mm-ss-SSS") + values.title,
           userUid: user!.uid,
           capital: true,
+          // create_at: dayjs().format(),
+          // update_at: dayjs().format(),
           values,
         });
       // analytics.logEvent("Create Forms");

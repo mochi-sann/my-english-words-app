@@ -52,7 +52,13 @@ function ListBox() {
                         bg: useColorModeValue("gray.100", "gray.900"),
                       }}
                     >
-                      <Heading fontSize="2xl" as="h4" mb="2">
+                      <Heading
+                        fontSize="2xl"
+                        as="h4"
+                        pb="2"
+                        borderBottom="1px"
+                        borderColor={useColorModeValue("gray.300", "gray.600")}
+                      >
                         {doc.data().values.title}
                       </Heading>
                       {/* {doc.data().} */}
@@ -93,25 +99,21 @@ const EnglishWordSimplelist = ({ ListDeta }: EnglishWordSimplelistProps) => {
   return (
     <Box>
       <HStack w="100%" my="2">
-        <Text w="50%">日本語</Text>
-        <Text w="50%">英語</Text>
+        <Text fontWeight="700" w="50%">
+          日本語
+        </Text>
+        <Text fontWeight="700" w="50%">
+          英語
+        </Text>
       </HStack>
-      <hr />
-      <HStack w="100%" my="2">
-        <Text w="50%">{ListDeta.collection[0].japanese}</Text>
-        <Text w="50%">{ListDeta.collection[0].english}</Text>
-      </HStack>
-      <hr />
-      <HStack w="100%" my="2">
-        <Text w="50%">{ListDeta.collection[1].japanese}</Text>
-        <Text w="50%">{ListDeta.collection[1].english}</Text>
-      </HStack>
-      <hr />
-      <HStack w="100%" my="2">
-        <Text w="50%">{ListDeta.collection[2].japanese}</Text>
-        <Text w="50%">{ListDeta.collection[2].english}</Text>
-      </HStack>
-      <hr />
+      {ListDeta.collection.map((value: any) => (
+        <React.Fragment key={value.id}>
+          <HStack w="100%" my="2">
+            <Text w="50%">{value.japanese}</Text>
+            <Text w="50%">{value.english}</Text>
+          </HStack>
+        </React.Fragment>
+      ))}
     </Box>
   );
 };
