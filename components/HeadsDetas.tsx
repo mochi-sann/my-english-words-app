@@ -69,7 +69,7 @@ const HeadsDeta = ({ children, title }: HeadsDetaPropsType) => {
       {/* <meta name="twitter:description" content="Best PWA App in the world" /> */}
       <meta
         name="twitter:image"
-        content="https://yourdomain.com/static/icons/android-chrome-192x192.png"
+        content="https://my-english-words-app.vercel.app/og-img/ogimg(2).png"
       />
       <meta name="twitter:creator" content="@mochi-sann" />
       <meta property="og:type" content="website" />
@@ -79,7 +79,7 @@ const HeadsDeta = ({ children, title }: HeadsDetaPropsType) => {
       <meta property="og:url" content="https://yourdomain.com" />
       <meta
         property="og:image"
-        content="https://yourdomain.com/static/icons/apple-touch-icon.png"
+        content="https://my-english-words-app.vercel.app/og-img/ogimg(2).png"
       />
 
       {children}
