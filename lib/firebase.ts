@@ -1,6 +1,7 @@
 import firebase from "firebase/app";
 import "firebase/auth"; // If you need it
 import "firebase/firestore";
+// import { useToast } from "@chakra-ui/react";
 
 // import "firebase/storage"; // If you need it
 
@@ -28,6 +29,7 @@ export const auth = firebase.auth();
 
 export const loginGoogle = (type: "google" | "github") => {
   // googleでログイン
+
   let provider: any = "";
   switch (type) {
     case "google":
@@ -53,13 +55,21 @@ export const loginGoogle = (type: "google" | "github") => {
       console.log(result);
 
       // ...
+      return result;
     })
     .catch(function (error) {
       console.log(error);
 
       // Handle Errors here.
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
+      const errorCode = error.code;
+      console.log(errorCode);
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      if (errorCode === "auth/account-exists-with-different-credential") {
+        console.log("すでに同じアカウントでログインしています");
+        // alert("すでに同じアカウントでログインしています");
+        return "Cantlogin";
+      }
       // The email of the user's account used.
       // const email = error.email;
       // The firebase.auth.AuthCredential type that was used.

@@ -30,7 +30,7 @@ import React from "react";
 // };
 import { LogosGoogleIcon } from "~/components/svgs/logo";
 import { MdiLogout } from "~/components/svgs/icon";
-
+// import { GrGithub } from "react-icons/gr";
 export const LoginDrawer = ({ isOpen, onClose, finalFocusRef }: any) => {
   return (
     <>
@@ -58,6 +58,22 @@ export const LoginDrawer = ({ isOpen, onClose, finalFocusRef }: any) => {
               >
                 <Text ml="3">Googleでログイン</Text>
               </Button>
+              {/* <Button
+                mt="2"
+                w="100%"
+                leftIcon={<GrGithub className="w-5 h-5" />}
+                onClick={() => {
+                  const eeeeeeeeee = async () => {
+                    const resule = await loginGoogle("github");
+                    console.log(resule);
+
+                    return resule;
+                  };
+                  eeeeeeeeee();
+                }}
+              >
+                <Text ml="3">Githubでログイン</Text>
+              </Button> */}
             </DrawerBody>
           </DrawerContent>
         </DrawerOverlay>
